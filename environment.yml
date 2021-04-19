@@ -1,4 +1,4 @@
-name: qe-mini-example
+name: jupyter-book-env
 channels:
   - default
 dependencies:
