@@ -1,4 +1,4 @@
 # - file: README
 - file: docs/index
   sections:
-    - file: docs/about_py
+    - file: docs/01_basics
