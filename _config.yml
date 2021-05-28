@@ -24,10 +24,6 @@ html:
   use_issues_button           : true
   use_edit_page_button        : true
 
-# #######################################################################################
-# Interact link settings
-notebook_interface            : "notebook"
-
 #######################################################################################
 # Launch button settings
 repository:
@@ -37,7 +33,7 @@ repository:
 launch_buttons:
   notebook_interface          : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url               : "https://mybinder.org"
-  #jupyterhub_url              : "https://jupyterhub.uio.no"
+  jupyterhub_url              : "https://jupyterhub.uio.no"
   colab_url                   : "https://colab.research.google.com"
 
 # latex:
