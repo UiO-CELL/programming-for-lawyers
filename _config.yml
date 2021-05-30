@@ -33,6 +33,7 @@ repository:
 launch_buttons:
   notebook_interface          : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
   #binderhub_url               : "https://mybinder.org"
+  binderhub_url               : ""
   jupyterhub_url              : "https://hub2.jupyterhub.uio.no" # hub2 is for testing, switch to jupyterhub.uio.no in August
   colab_url                   : "https://colab.research.google.com"
 
