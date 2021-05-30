@@ -4,4 +4,5 @@
     - file: docs/01_basics
     - file: docs/02_decisions
     - file: docs/03_lists_loops
-    - file: docs/04_functions_dictionaries
+    - file: docs/04_functions
+    - file: docs/04b_dictionaries
