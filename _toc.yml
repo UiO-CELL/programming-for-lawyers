@@ -7,3 +7,4 @@
     - file: docs/03b_loops
     - file: docs/04_functions
     - file: docs/04b_dictionaries
+    - file: docs/05_files_exceptions
