@@ -1,12 +1,10 @@
 format: jb-book
 root: docs/index
 chapters:
-- file: docs/index
-  sections:
-    - file: docs/01_basics
-    - file: docs/02_decisions
-    - file: docs/03_lists
-    - file: docs/03b_loops
-    - file: docs/04_functions
-    - file: docs/04b_dictionaries
-    - file: docs/05_files_exceptions
+- file: docs/01_basics
+- file: docs/02_decisions
+- file: docs/03_lists
+- file: docs/03b_loops
+- file: docs/04_functions
+- file: docs/04b_dictionaries
+- file: docs/05_files_exceptions
