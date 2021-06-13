@@ -1,4 +1,6 @@
-# - file: README
+format: jb-book
+root: docs/index
+chapters:
 - file: docs/index
   sections:
     - file: docs/01_basics
