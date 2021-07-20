@@ -11,3 +11,7 @@ chapters:
 - file: docs/tabular_data
 - file: docs/sorting_filtering
 - file: docs/JSON-APIs
+- file: docs/machine_learning
+  sections:
+  - file: docs/supervised_learning
+  - file: docs/unsupervised_learning
