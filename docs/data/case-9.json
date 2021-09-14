@@ -1,0 +1,52 @@
+{
+    "article": [
+        "10"
+    ],
+    "country": {
+        "alpha2": "ru",
+        "name": "Russian Federation"
+    },
+    "decision_body": [
+        {
+            "name": "Vincent A. De Gaetano",
+            "role": "president"
+        },
+        {
+            "name": "Branko Lubarda",
+            "role": "judges"
+        },
+        {
+            "name": "Helen Keller",
+            "role": "judges"
+        },
+        {
+            "name": "Dmitry Dedov",
+            "role": "judges"
+        },
+        {
+            "name": "Pere Pastor Vilanova",
+            "role": "judges"
+        },
+        {
+            "name": "Georgios A. Serghides",
+            "role": "judges"
+        },
+        {
+            "name": "Jolien Schukking",
+            "role": "judges"
+        },
+        {
+            "name": "Stephen Phillips",
+            "role": "section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF FEDCHENKO v. RUSSIA (No. 3)",
+    "doctypebranch": "CHAMBER",
+    "importance": "4",
+    "judgementdate": "02/10/2018 00:00:00",
+    "parties": [
+        "FEDCHENKO",
+        "RUSSIA"
+    ]
+}

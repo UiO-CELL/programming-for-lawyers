@@ -1,0 +1,36 @@
+{
+    "article": [
+        "3"
+    ],
+    "country": {
+        "alpha2": "cy",
+        "name": "Cyprus"
+    },
+    "decision_body": [
+        {
+            "name": "Branko Lubarda",
+            "role": "president"
+        },
+        {
+            "name": "Pere Pastor Vilanova",
+            "role": "judges"
+        },
+        {
+            "name": "Georgios A. Serghides",
+            "role": "judges"
+        },
+        {
+            "name": "Fato\u015f Arac\u0131",
+            "role": "deputy section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF KHANH v. CYPRUS",
+    "doctypebranch": "COMMITTEE",
+    "importance": "4",
+    "judgementdate": "04/12/2018 00:00:00",
+    "parties": [
+        "KHANH",
+        "CYPRUS"
+    ]
+}

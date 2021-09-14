@@ -1,0 +1,52 @@
+{
+    "article": [
+        "6"
+    ],
+    "country": {
+        "alpha2": "si",
+        "name": "Slovenia"
+    },
+    "decision_body": [
+        {
+            "name": "MrJ. Hedigan",
+            "role": "president"
+        },
+        {
+            "name": "MrB.M. Zupan\u010di\u010d",
+            "role": "judges"
+        },
+        {
+            "name": "MrC. B\u00eersan",
+            "role": "judges"
+        },
+        {
+            "name": "MrV. Zagrebelsky",
+            "role": "judges"
+        },
+        {
+            "name": "MrsA. Gyulumyan",
+            "role": "judges"
+        },
+        {
+            "name": "MrDavid Th\u00f3r Bj\u00f6rgvinsson",
+            "role": "judges"
+        },
+        {
+            "name": "MrsI. Ziemele",
+            "role": "judges"
+        },
+        {
+            "name": "Mr V. Berger",
+            "role": "section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF OBERWALDER v. SLOVENIA",
+    "doctypebranch": "CHAMBER",
+    "importance": "4",
+    "judgementdate": "18/01/2007 00:00:00",
+    "parties": [
+        "OBERWALDER",
+        "SLOVENIA"
+    ]
+}

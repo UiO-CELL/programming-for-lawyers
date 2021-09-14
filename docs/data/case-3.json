@@ -1,0 +1,52 @@
+{
+    "article": [
+        "5"
+    ],
+    "country": {
+        "alpha2": "ru",
+        "name": "Russian Federation"
+    },
+    "decision_body": [
+        {
+            "name": "Nina Vaji\u0107",
+            "role": "president"
+        },
+        {
+            "name": "Anatoly Kovler",
+            "role": "judges"
+        },
+        {
+            "name": "Khanlar Hajiyev",
+            "role": "judges"
+        },
+        {
+            "name": "Mirjana Lazarova Trajkovska",
+            "role": "judges"
+        },
+        {
+            "name": "Julia Laffranque",
+            "role": "judges"
+        },
+        {
+            "name": "Linos-Alexandre Sicilianos",
+            "role": "judges"
+        },
+        {
+            "name": "Erik M\u00f8se",
+            "role": "judges"
+        },
+        {
+            "name": "S\u00f8ren Nielsen",
+            "role": "section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF RAKHMONOV v. RUSSIA",
+    "doctypebranch": "CHAMBER",
+    "importance": "4",
+    "judgementdate": "16/10/2012 00:00:00",
+    "parties": [
+        "RAKHMONOV",
+        "RUSSIA"
+    ]
+}

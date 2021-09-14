@@ -1,0 +1,52 @@
+{
+    "article": [
+        "6",
+        "p1-1"
+    ],
+    "country": {
+        "alpha2": "tr",
+        "name": "Turkey"
+    },
+    "decision_body": [
+        {
+            "name": "Fran\u00e7oise Tulkens",
+            "role": "president"
+        },
+        {
+            "name": "Ireneu Cabral Barreto",
+            "role": "judges"
+        },
+        {
+            "name": "Vladimiro Zagrebelsky",
+            "role": "judges"
+        },
+        {
+            "name": "Danut\u0117 Jo\u010dien\u0117",
+            "role": "judges"
+        },
+        {
+            "name": "Andr\u00e1s Saj\u00f3",
+            "role": "judges"
+        },
+        {
+            "name": "Nona Tsotsoria",
+            "role": "judges"
+        },
+        {
+            "name": "I\u015f\u0131l Karaka\u015f",
+            "role": "judges"
+        },
+        {
+            "name": "Sally Doll\u00e9",
+            "role": "section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF ARAT AND OTHERSv. TURKEY",
+    "doctypebranch": "CHAMBER",
+    "importance": "4",
+    "judgementdate": "13/01/2009 00:00:00",
+    "parties": [
+        "ARAT AND OTHERSv. TURKEY"
+    ]
+}

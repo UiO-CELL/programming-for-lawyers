@@ -1,0 +1,53 @@
+{
+    "article": [
+        "13",
+        "8"
+    ],
+    "country": {
+        "alpha2": "ro",
+        "name": "Romania"
+    },
+    "decision_body": [
+        {
+            "name": "Andr\u00e1s Saj\u00f3",
+            "role": "president"
+        },
+        {
+            "name": "Vincent A. De Gaetano",
+            "role": "judges"
+        },
+        {
+            "name": "Nona Tsotsoria",
+            "role": "judges"
+        },
+        {
+            "name": "Paulo Pinto de Albuquerque",
+            "role": "judges"
+        },
+        {
+            "name": "Krzysztof Wojtyczek",
+            "role": "judges"
+        },
+        {
+            "name": "Iulia Motoc",
+            "role": "judges"
+        },
+        {
+            "name": "Marko Bo\u0161njak",
+            "role": "judges"
+        },
+        {
+            "name": "Marialena Tsirli",
+            "role": "section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF CACUCI AND S.C. VIRRA & CONT PAD S.R.L. v. ROMANIA",
+    "doctypebranch": "CHAMBER",
+    "importance": "4",
+    "judgementdate": "17/01/2017 00:00:00",
+    "parties": [
+        "CACUCI AND S.C. VIRRA & CONT PAD S.R.L.",
+        "ROMANIA"
+    ]
+}

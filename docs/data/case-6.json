@@ -1,0 +1,52 @@
+{
+    "article": [
+        "6"
+    ],
+    "country": {
+        "alpha2": "ua",
+        "name": "Ukraine"
+    },
+    "decision_body": [
+        {
+            "name": "Peer Lorenzen",
+            "role": "president"
+        },
+        {
+            "name": "Rait Maruste",
+            "role": "judges"
+        },
+        {
+            "name": "Karel Jungwiert",
+            "role": "judges"
+        },
+        {
+            "name": "Mark Villiger",
+            "role": "judges"
+        },
+        {
+            "name": "Mirjana Lazarova Trajkovska",
+            "role": "judges"
+        },
+        {
+            "name": "Zdravka Kalaydjieva",
+            "role": "judges"
+        },
+        {
+            "name": "Stanislav Shevchuk",
+            "role": "ad hoc judge"
+        },
+        {
+            "name": "Claudia Westerdiek",
+            "role": "section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF LEBEDINTSEVA v. UKRAINE",
+    "doctypebranch": "CHAMBER",
+    "importance": "4",
+    "judgementdate": "12/03/2009 00:00:00",
+    "parties": [
+        "LEBEDINTSEVA",
+        "UKRAINE"
+    ]
+}

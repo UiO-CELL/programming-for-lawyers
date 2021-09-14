@@ -1,0 +1,52 @@
+{
+    "article": [
+        "p1-1"
+    ],
+    "country": {
+        "alpha2": "pl",
+        "name": "Poland"
+    },
+    "decision_body": [
+        {
+            "name": "Nicolas Bratza",
+            "role": "president"
+        },
+        {
+            "name": "Josep Casadevall",
+            "role": "judges"
+        },
+        {
+            "name": "Stanislav Pavlovschi",
+            "role": "judges"
+        },
+        {
+            "name": "Lech Garlicki",
+            "role": "judges"
+        },
+        {
+            "name": "Ljiljana Mijovi\u0107",
+            "role": "judges"
+        },
+        {
+            "name": "J\u00e1n \u0160ikuta",
+            "role": "judges"
+        },
+        {
+            "name": "P\u00e4ivi Hirvel\u00e4",
+            "role": "judges"
+        },
+        {
+            "name": "Lawrence Early",
+            "role": "section registrar"
+        }
+    ],
+    "decisiondate": "",
+    "docname": "CASE OF BUCZKIEWICZ v. POLAND",
+    "doctypebranch": "CHAMBER",
+    "importance": "4",
+    "judgementdate": "26/02/2008 00:00:00",
+    "parties": [
+        "BUCZKIEWICZ",
+        "POLAND"
+    ]
+}
