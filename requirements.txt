@@ -2,4 +2,4 @@ sphinx
 pandas
 matplotlib
 jupyter-book
-sklearn
+scikit-learn
