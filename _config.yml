@@ -1,6 +1,6 @@
 #######################################################################################
 # Book settings
-title : Programming for Lawyers
+title: Programming for Lawyers
 author: Erik Winge
 logo: images/uio_logo_small.svg
 only_build_toc_files          : true
