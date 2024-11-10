@@ -1,0 +1,1099 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Supervised Learning &#8212; Programming for Lawyers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/supervised_learning';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Retrieval-Augmented Generation" href="RAG.html" />
+    <link rel="prev" title="Machine Learning" href="machine_learning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Programming for Lawyers - Home"/>
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-dark pst-js-only" alt="Programming for Lawyers - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">Programming basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_files_exceptions.html">Files and Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabular_data.html">Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting_filtering.html">Sorting, Filtering Data and Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine Learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAG.html">Retrieval-Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">Appendix: Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JSON-APIs.html">Appendix: JSON and Web APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone-programs.html">Appendix: Standalone Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/UiO-CELL/programming-for-lawyers&urlpath=tree/programming-for-lawyers/docs/supervised_learning.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/UiO-CELL/programming-for-lawyers/blob/master/docs/supervised_learning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/edit/master/docs/supervised_learning.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/issues/new?title=Issue%20on%20page%20%2Fdocs/supervised_learning.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/supervised_learning.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Supervised Learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-classes">Visualizing Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-labels">Class Labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-text-from-files">Loading Text from Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizing-text">Vectorizing Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-data">Inspecting the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-the-data">Splitting the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-classifier">Making a Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-classifier">Training the Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-learning">Monitoring Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-classifier">Testing the Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-the-results">Improving the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-classification">Binary Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data">More Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-model">Changing the Model</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="supervised-learning">
+<h1>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Link to this heading">#</a></h1>
+<p>By supervision we mean human supervision.
+Supervised learning works with labeled (annotated) data.
+The labels must be made manually by people, and this can require a lot of work for large data sets.
+The labels are annotations that describes the data.</p>
+<p>In our case, the data will be text documents.
+One common task is classification where the goal is to split the data into classes, for example by topic.
+Documents can be classified for example by type, topic, language, or jurisdiction.</p>
+<section id="visualizing-classes">
+<h2>Visualizing Classes<a class="headerlink" href="#visualizing-classes" title="Link to this heading">#</a></h2>
+<p>To get an idea of how classification works, we’ll first look at a simple example that doesn’t involve text.
+We can simulate a data set with only two features, so that they can be visualized easily.
+Real data sets rarely have so few features and are harder to visualize.</p>
+<p>First, we import some functions we will need.</p>
+<ul class="simple">
+<li><p>scikit-learn (<code class="docutils literal notranslate"><span class="pre">sklearn</span></code>) is a library for machine learning.</p></li>
+<li><p>matplotlib is a library for plotting and visualizing results.</p></li>
+</ul>
+<p>We also import some functions from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> that we’ll use below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="c1"># configure matplotlib</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = [&#39;svg&#39;]
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we use sklearn to make a simulated or synthetic data set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                   <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can plot the data points in a <em>scatter plot</em>.
+The two classes have different colors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Set1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/88625f6eb1b4d467e8dd0df8999c40e61261e50aef5597f66eee023cff39fbfb.svg" src="../_images/88625f6eb1b4d467e8dd0df8999c40e61261e50aef5597f66eee023cff39fbfb.svg" />
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Interpreting the Data</p>
+<p>While this data set is artificial, real world data could look like this.
+The data points can represent the outcomes of criminal cases, where the gray points are cases that resulted in a prison sentence, while the red points resulted in probation.
+The x-axis can measure the number of criminal offenses, while the y-axis measures the seriousness of the offenses.</p>
+</div>
+<p>In the plot above, the two classes are grouped and separated quite nicely.
+This makes learning easier.
+If the classes overlap, they are harder to distinguish.</p>
+<p>The goal in classification is to <em>predict</em> the class of new data points.
+The assumption is that new points will have the same class as other nearby points.
+The classifier must find the boundary between the classes.
+The classifier learns this class boundary from the training data.</p>
+<div class="admonition-decision-boundaries admonition">
+<p class="admonition-title">Decision Boundaries</p>
+<p>We call the “border” between the classes the <em>decision boundary</em>.
+We can see that these classes are nearly <em>linearly separable</em>, which means that we can draw a straight line that separates the two classes.</p>
+<p>Some simple machine learning algorithms can only separate data linearly, while more powerful algorithms, such as <em>neural networks</em>, can make arbitrary decision boundaries.</p>
+</div>
+<div class="admonition-outliers admonition">
+<p class="admonition-title">Outliers</p>
+<p>At least one of the gray points lies within the red “area”.
+Without this point, the data would be linearly separable.
+This point seems to be a statistical <em>outlier</em>.
+An outlier is an extreme value that differs significantly from other values.
+There are a couple of gray points at the top of the figure which also seem to be outliers.</p>
+</div>
+</section>
+<section id="class-labels">
+<h2>Class Labels<a class="headerlink" href="#class-labels" title="Link to this heading">#</a></h2>
+<p>Below is an example of a document which is a contract.
+The label (document type) is not part of the document.
+If the documents are stored as tabular data, the labels are in one or more separate columns.
+The first column could contain the document while the second column could contain the label.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Agreement</span>
+
+<span class="mf">1.</span> <span class="n">Introduction</span><span class="p">:</span> <span class="n">The</span> <span class="n">lender</span> <span class="ow">is</span> <span class="n">Bank</span> <span class="n">Cred</span> <span class="n">AS</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">borrower</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">person</span> <span class="ow">or</span> <span class="n">persons</span> <span class="p">(</span><span class="n">borrower</span> <span class="ow">and</span> <span class="n">co</span><span class="o">-</span><span class="n">applicant</span><span class="p">)</span> <span class="n">who</span> <span class="n">apply</span>
+<span class="k">for</span> <span class="ow">and</span> <span class="n">are</span> <span class="n">granted</span> <span class="n">a</span> <span class="n">loan</span> <span class="k">with</span> <span class="n">this</span> <span class="n">Agreement</span><span class="o">.</span>
+<span class="n">Payment</span><span class="p">:</span> <span class="n">The</span> <span class="n">credit</span> <span class="ow">is</span> <span class="n">paid</span> <span class="n">to</span> <span class="n">the</span> <span class="n">account</span> <span class="n">number</span> <span class="n">the</span> <span class="n">Borrower</span> <span class="n">states</span><span class="o">.</span>
+
+<span class="mf">2.</span> <span class="n">Repayment</span><span class="p">:</span> <span class="n">The</span> <span class="n">Borrower</span> <span class="n">repays</span> <span class="n">the</span> <span class="n">loan</span> <span class="n">amount</span> <span class="n">at</span> <span class="n">fixed</span> <span class="n">term</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">including</span> 
+<span class="n">interest</span> <span class="ow">and</span> <span class="n">term</span> <span class="n">fees</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">annuity</span> <span class="n">loans</span><span class="p">)</span> <span class="k">as</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Loan</span> <span class="n">Agreement</span><span class="o">.</span>
+
+<span class="mf">3.</span> <span class="n">Late</span> <span class="n">Payment</span> <span class="n">Interest</span><span class="p">:</span> <span class="n">In</span> <span class="n">the</span> <span class="n">event</span> <span class="n">of</span> <span class="n">late</span> <span class="n">payment</span><span class="p">,</span> <span class="n">late</span> <span class="n">payment</span> <span class="n">interest</span> <span class="n">accrues</span>
+<span class="n">at</span> <span class="n">the</span> <span class="n">interest</span> <span class="n">rate</span> <span class="n">determined</span> <span class="ow">in</span> <span class="n">accordance</span> <span class="k">with</span> <span class="n">the</span> <span class="n">Act</span> <span class="n">relating</span> <span class="n">to</span> <span class="n">Interest</span> <span class="n">on</span>
+<span class="n">Overdue</span> <span class="n">Payments</span><span class="o">.</span>
+
+<span class="n">Signature</span> <span class="n">Place</span><span class="o">/</span><span class="n">date</span><span class="p">:</span> <span class="n">Oslo</span><span class="p">,</span> <span class="mf">08.08.2021</span>
+<span class="n">For</span> <span class="n">Bank</span> <span class="n">Cred</span> <span class="n">AS</span> <span class="n">Bank</span> <span class="n">adviser</span> <span class="n">Maria</span> <span class="n">Wilson</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Christopher</span> <span class="n">Thomson</span> <span class="n">Borrower</span>
+</pre></div>
+</div>
+<p>This document could have different labels/classes depending on our application needs.
+For example, if we’re interested in document types, it could be labeled “contract”.
+If we’re classifying documents by language, it would be labeled “English”.</p>
+</section>
+<section id="loading-text-from-files">
+<h2>Loading Text from Files<a class="headerlink" href="#loading-text-from-files" title="Link to this heading">#</a></h2>
+<p>We will continue working with cases from the ECHR-OD data set.
+Our task is to predict the conclusion from the facts of the case.
+We will limit ourselves to Article 6, since multiple classes are harder to predict than a single class.</p>
+<p>First, we must define some functions to read and process the data.
+The details of these functions aren’t important here, but you can click to see them if you like.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">read_json_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="s1">&#39;Read json data from a file&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">text_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text_data</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">json_to_text</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">include_headings</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Extract content text from JSON tree structure.</span>
+<span class="sd">    https://echr-opendata.eu/doc/</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        doc: ECHR-OD JSON element</span>
+<span class="sd">        include_headings: Whether to include the section headings</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">json_to_text_helper</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">include_headings</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">))</span>  <span class="c1"># replace non-breaking space</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">]:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">json_to_text_helper</span><span class="p">(</span><span class="n">element</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">json_to_text_helper</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">get_facts</span><span class="p">(</span><span class="n">case</span><span class="p">):</span>
+    <span class="s1">&#39;Get the &quot;Facts&quot; section of the case text&#39;</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+    <span class="n">docname</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">content</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">content</span><span class="p">[</span><span class="n">docname</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;section_name&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;facts&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">json_to_text</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">get_conclusion</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="n">article</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get the conclusion of the case regarding the specified article</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">conclusions</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;conclusion&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">conclusion</span> <span class="ow">in</span> <span class="n">conclusions</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">conclusion</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;article&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">article</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">conclusion</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s1">&#39;no conclusion&#39;</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Now, we can read the json data from the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="n">read_json_file</span><span class="p">(</span><span class="s1">&#39;cases-2000.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We make two lists, one containing the documents and another containing the labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">documents</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_facts</span><span class="p">(</span><span class="n">case</span><span class="p">)</span> <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_conclusion</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check that we have the same number of documents and labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of documents: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span><span class="si">}</span><span class="s1">, labels: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of documents: 2000, labels: 2000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vectorizing-text">
+<h2>Vectorizing Text<a class="headerlink" href="#vectorizing-text" title="Link to this heading">#</a></h2>
+<p>To use text documents in machine learning, they must first be vectorized.
+We’ll use a simple Bag of Words representation, which is provided by scikit-learn’s <code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code>.
+This function has some parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_features=20000</span></code> specifies the number of different words to include.
+<code class="docutils literal notranslate"><span class="pre">CountVectorizer()</span></code> includes the words with the most occurrences, and ignores rare words.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stop_words='english'</span></code> means that <em>function words</em> like “the” and “in” should be ignored.
+Stop words carry little meaning, so it is often best to ignore them.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lowercase=True</span></code> means that all words are converted to lowercase.
+If we don’t do this, all the words at the start of sentences with capital letters will be treated as separate words.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">binary=False</span></code> means that we count the number of words.
+<code class="docutils literal notranslate"><span class="pre">binary=True</span></code> means that we only record whether a word is present with 1 or 0, in a <em>binary</em> vector.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span>
+    <span class="n">max_features</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>
+    <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">,</span>
+    <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the vectorizer made, we can use it to transform the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_features</span> <span class="o">=</span> <span class="n">text_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The string labels must also be turned into numbers.
+We do this with <code class="docutils literal notranslate"><span class="pre">LabelEncoder()</span></code>, which returns an integer for each label.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_vectorizer</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">labels_vector</span> <span class="o">=</span> <span class="n">label_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inspecting-the-data">
+<h2>Inspecting the Data<a class="headerlink" href="#inspecting-the-data" title="Link to this heading">#</a></h2>
+<p>We can do some manual checks, to see that everything looks okay.
+First, let’s see how many examples we have of each class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Label counts&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/de381e0b67465a7f83739c00ffef2aa5c5519cedc3394582277947df26041ed6.svg" src="../_images/de381e0b67465a7f83739c00ffef2aa5c5519cedc3394582277947df26041ed6.svg" />
+</div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Imbalanced Data</p>
+<p>The plot shows that our data clearly are imbalanced, with many more conclusions of “violation” than “no violation”.
+Fewer “no violation” examples to learn from can lead to difficulties with learning and bias in the learned function.
+We might consider rebalancing the data by ignoring some of the cases where a violation was found.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even though we are only looking at article 6, we still get 3 classes.
+Cases can have 3 possible conclusions for article 6: “violation”, “no-violation” or “no conclusion”,
+i.e. article 6 is not relevant for the case.
+We would get better results if we filtered out the cases that are not relevant.
+This is left as an exercise.</p>
+</div>
+<p>We can also look at the vocabulary of the vectorizer.
+If this number is lower than <code class="docutils literal notranslate"><span class="pre">max_features</span></code>, it means that our documents contain fewer than this many unique words.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocabulary</span> <span class="o">=</span> <span class="n">text_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vocabulary size:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocabulary</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vocabulary size: 20000
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can list some of the words in the vocabulary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vocabulary sample:&#39;</span><span class="p">,</span> <span class="n">vocabulary</span><span class="p">[</span><span class="mi">5000</span><span class="p">:</span><span class="mi">5010</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vocabulary sample: [&#39;coordinated&#39; &#39;coordinates&#39; &#39;coordinating&#39; &#39;coordination&#39; &#39;coordinator&#39;
+ &#39;coowner&#39; &#39;coowners&#39; &#39;coownership&#39; &#39;cope&#39; &#39;copenhagen&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="splitting-the-data">
+<h2>Splitting the Data<a class="headerlink" href="#splitting-the-data" title="Link to this heading">#</a></h2>
+<p>We want the learned function to be useful on new data.
+Therefore, we want to be able to check that it generalizes to new data.
+To do this, we must put aside some of the data to use for testing after the training is completed.
+We can use scikit-learn’s function <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> to split our data set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_train</span><span class="p">,</span> <span class="n">input_test</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">,</span> <span class="n">labels_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">input_features</span><span class="p">,</span> <span class="n">labels_vector</span><span class="p">,</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training examples after split:&#39;</span><span class="p">,</span> <span class="n">input_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training examples after split: 1400
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-x-and-y admonition">
+<p class="admonition-title">X and y</p>
+<p>Above, we use “input” and “ labels” in the variable names.
+It is a quite common convention to use X and y instead, probably for conciseness.
+If you prefer, you can use shorter names, such as <code class="docutils literal notranslate"><span class="pre">X_train,</span> <span class="pre">X_test,</span> <span class="pre">y_train,</span> <span class="pre">y_test</span></code>.</p>
+</div>
+</section>
+<section id="making-a-classifier">
+<h2>Making a Classifier<a class="headerlink" href="#making-a-classifier" title="Link to this heading">#</a></h2>
+<p>Scikit-learn has many different classifiers, but we will use a simple neural network called <code class="docutils literal notranslate"><span class="pre">MLPClassifier()</span></code>.
+This is a Multilayer perceptron (MLP) which is an artificial neural network with multiple layers.
+<code class="docutils literal notranslate"><span class="pre">MLPClassifier()</span></code> has many parameters, but we only need to specify these:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_iter=1000</span></code> is the maximum number of iterations to run</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">early_stopping=True</span></code> which means that the algorithm stops if new iterations doesn’t improve the function, i.e. the learning is no longer effective.
+We use early stopping both to avoid wasting resources and to avoid <em>overfitting</em> the function to our data.
+Overfitting means that the function doesn’t generalize well to new data.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classifier</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span>
+    <span class="c1"># hidden_layer_sizes=(100,),</span>
+    <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">early_stopping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="training-the-classifier">
+<h2>Training the Classifier<a class="headerlink" href="#training-the-classifier" title="Link to this heading">#</a></h2>
+<p>Now, we can train our neural network on the training data.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">input_train</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-training-versus-fitting admonition">
+<p class="admonition-title">Training versus Fitting</p>
+<p>With some machine learning methods we say that we are <em>fitting</em> a function to the data,
+but with neural networks it is more common to say that we are <em>training</em> the network on the data.
+As you can see above, in scikit-learn the training function is called <code class="docutils literal notranslate"><span class="pre">fit()</span></code>.</p>
+</div>
+</section>
+<section id="monitoring-learning">
+<h2>Monitoring Learning<a class="headerlink" href="#monitoring-learning" title="Link to this heading">#</a></h2>
+<p>We can plot a learning curve to see how the learning progresses with each iteration.
+Here, the x-axis shows the iterations, and the y-axis shows the <em>loss</em>, which is the deviation from the desired output.
+Because we use early stopping, the algorithm halts when the curve flattens.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">loss_curve_</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/330b8d05407ed8adea0ca34e994f0e8a9905698f414d9dc93629775ed90e7c5d.svg" src="../_images/330b8d05407ed8adea0ca34e994f0e8a9905698f414d9dc93629775ed90e7c5d.svg" />
+</div>
+</div>
+</section>
+<section id="testing-the-classifier">
+<h2>Testing the Classifier<a class="headerlink" href="#testing-the-classifier" title="Link to this heading">#</a></h2>
+<p>After the training, we should test how the classifier works with new data.
+The simplest but not very informative way is an overall accuracy score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">input_test</span><span class="p">,</span> <span class="n">labels_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;score: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>score: 0.80
+</pre></div>
+</div>
+</div>
+</div>
+<p>The score is around 0.78, i.e. around 78%, which seems quite good.
+However, let’s look at the details of how the classifier performs for the different classes.</p>
+<p>First, we run the test data through the classifier to get the predicted labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_predicted</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we can make a classification report.
+This is done by comparing the predicted labels in <code class="docutils literal notranslate"><span class="pre">y_predicted</span></code>
+with the correct labels in <code class="docutils literal notranslate"><span class="pre">labels_test</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.82      0.86      0.84       290
+           1       0.25      0.05      0.09        37
+           2       0.79      0.83      0.81       273
+
+    accuracy                           0.80       600
+   macro avg       0.62      0.58      0.58       600
+weighted avg       0.77      0.80      0.78       600
+</pre></div>
+</div>
+</div>
+</div>
+<p>This report shows the <em>precision</em>, <em>recall</em>, and <em>F1-score</em> for the classes (see definitions below).
+The scores for the two largest classes, 0 and 2, are okay.
+But the recall for the smallest class, class 1 which is “no violation”, is below 10%.
+This means that the function finds less than 10% of the “no violation” cases in the test data.
+This score is very low and shows that our model is useless for predicting the results of cases.</p>
+<div class="admonition-precision-and-recall admonition">
+<p class="admonition-title">Precision and Recall</p>
+<ul class="simple">
+<li><p>Precision measures how many of the items the function assigns to a class belongs there.</p></li>
+<li><p>Recall measures how many true members of a class were found or “recalled”.</p></li>
+<li><p>F1-score is the harmonic mean of recall and precision.</p></li>
+</ul>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Varying Results</p>
+<p>Most machine learning methods are <em>nondeterministic</em>, and this is also true for neural networks.
+That a program is nondeterministic means that if we execute it twice on the same data,
+we won’t necessarily get the same results.
+There is an amount of <em>randomness</em> involved.
+Neural networks are initialized randomly, and the order of the training data is also random.
+Two neural networks that are trained on the same data can perform differently.
+Therefore, it is good practice to do the training multiple times and use the model that generalizes best.</p>
+<p>In our case, the code in this notebook can yield a recall between 5% and 15% for class 1 in the report above.
+There are only 37 “no violation” cases, as listed in the “Support” column of the table.
+Therefore, a change in a single “no violation” conclusion gives a change in the percent-score of 2.7.</p>
+</div>
+</section>
+<section id="improving-the-results">
+<h2>Improving the Results<a class="headerlink" href="#improving-the-results" title="Link to this heading">#</a></h2>
+<p>Our results so far aren’t very good.
+However, there are some improvements we can make that will probably yield better results.</p>
+<section id="binary-classification">
+<h3>Binary Classification<a class="headerlink" href="#binary-classification" title="Link to this heading">#</a></h3>
+<p>We attempted classification with three classes: “violation”, “no-violation” and “no conclusion”.
+Classification with only two classes (binary classification) is simpler and should give better results.
+Therefore, we should filter out the cases with no conclusion.
+If we need a way to determine whether an article is relevant for a case, it would probably be better to train a separate classifier for this task.</p>
+</section>
+<section id="more-data">
+<h3>More Data<a class="headerlink" href="#more-data" title="Link to this heading">#</a></h3>
+<p>So far, we have only used a small excerpt of the full ECHR-OD data set.
+Generally, more data should give better results.
+Therefore, we should use or gather as much data as possible when training machine learning algorithms.</p>
+</section>
+<section id="changing-the-model">
+<h3>Changing the Model<a class="headerlink" href="#changing-the-model" title="Link to this heading">#</a></h3>
+<p>We have used a simple Bag of Words representation which ignores much of the information in the documents, especially the order of the words.
+We also use a quite simple neural network.
+We would probably get better results using a more advanced neural network that uses more of the information in the documents.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="machine_learning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine Learning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="RAG.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Retrieval-Augmented Generation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-classes">Visualizing Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-labels">Class Labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-text-from-files">Loading Text from Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizing-text">Vectorizing Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-data">Inspecting the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-the-data">Splitting the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-classifier">Making a Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-classifier">Training the Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-learning">Monitoring Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-classifier">Testing the Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-the-results">Improving the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-classification">Binary Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data">More Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-model">Changing the Model</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Machine Learning &#8212; Programming for Lawyers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/machine_learning';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Supervised Learning" href="supervised_learning.html" />
+    <link rel="prev" title="Sorting, Filtering Data and Search" href="sorting_filtering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Programming for Lawyers - Home"/>
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-dark pst-js-only" alt="Programming for Lawyers - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">Programming basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_files_exceptions.html">Files and Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabular_data.html">Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting_filtering.html">Sorting, Filtering Data and Search</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supervised_learning.html">Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAG.html">Retrieval-Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">Appendix: Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JSON-APIs.html">Appendix: JSON and Web APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone-programs.html">Appendix: Standalone Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/UiO-CELL/programming-for-lawyers&urlpath=tree/programming-for-lawyers/docs/machine_learning.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/UiO-CELL/programming-for-lawyers/blob/master/docs/machine_learning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/edit/master/docs/machine_learning.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/issues/new?title=Issue%20on%20page%20%2Fdocs/machine_learning.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/machine_learning.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine Learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizing-data">Vectorizing Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
+<span id="id1"></span><h1>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h1>
+<p>Humans can learn from experience.
+In machine learning, the machine or program learns from data (or attempts to).
+The ever-increasing amount of available data has led to greatly increasing interest in machine learning.
+Machine learning is a collection of statistical methods that can be used to extract information from data.</p>
+<p>Machine learning uses methods from computer science and statistics, preferably in combination with domain knowledge.
+The domain knowledge in our case is knowledge of law.
+<a class="reference internal" href="#intersection"><span class="std std-numref">Fig. 1</span></a> shows this view of machine learning in the intersection of computer science and statistics.
+One definition of <em>data science</em> is as a triangle at the intersection of computer science, statistics, and domain knowledge.</p>
+<figure class="align-default" id="intersection">
+<a class="reference internal image-reference" href="../_images/intersection.svg"><img alt="Venn diagram showing machine learning in the intersection of statistics and computer science" src="../_images/intersection.svg" style="width: 375.0px; height: 364.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Machine learning lies in the intersection of statistics and computer science.</span><a class="headerlink" href="#intersection" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Machine learning can be divided into three major categories:</p>
+<ul class="simple">
+<li><p><em>Supervised learning</em> where we provide human guidance to the learning process.
+The supervision is usually in the form of <em>labels</em> for the data.</p></li>
+<li><p><em>Unsupervised learning</em> where there is no human supervision.</p></li>
+<li><p><em>Reinforcement learning</em> is learning by trial and error, for example in robotics.
+Game playing programs, such as <a class="reference external" href="https://en.wikipedia.org/wiki/AlphaZero">AlphaZero</a>,
+are often based on reinforcement learning.</p></li>
+</ul>
+<p>Machine learning differs from traditional programming in how we solve problems.
+A traditional program uses an algorithm on some input data to produce a result.
+With machine learning, the algorithm is unknown and is what we want to learn.
+In supervised learning, we have a set of input data and the corresponding <em>desired</em> output data.
+From this, we want to learn an algorithm or function that can produce the desired output from the given input.
+<a class="reference internal" href="#learning1"><span class="std std-numref">Fig. 2</span></a> illustrates this difference.</p>
+<figure class="align-default" id="learning1">
+<img alt="Figure showing traditional programs using an algorithm on an input to produce a result. Compared to machine learning, where the program uses input and desired output to learn an algorithm." src="../_images/machine-learning1.svg" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Traditional programming versus supervised machine learning</span><a class="headerlink" href="#learning1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once we have learned a function that (approximately) yields the desired output,
+we can use this function to <em>predict</em> labels for new, unlabeled data.
+This is illustrated in <a class="reference internal" href="#learning2"><span class="std std-numref">Fig. 3</span></a>.
+The goal is for the learned function to <em>generalize</em> well to new data.</p>
+<figure class="align-default" id="learning2">
+<img alt="Continues the machine learning illustration with a new stage where the learned algorithm is applied to new data." src="../_images/machine-learning2.svg" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Complete machine learning process, where we use our learned algorithm on new data.</span><a class="headerlink" href="#learning2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For many problems, there exists well-known traditional algorithms that solve the problem.
+For these problems, there is usually no reason to use machine learning.
+For example, there are many efficient algorithms for sorting data, so there is probably no need to use machine learning for this.
+We use machine learning when we have data to learn from, but there is no known function to produce the output we want.</p>
+<section id="vectorizing-data">
+<span id="vectorizing"></span><h2>Vectorizing Data<a class="headerlink" href="#vectorizing-data" title="Link to this heading">#</a></h2>
+<p>Machine learning can work with many different types of data, both numbers, images, and text.
+However, computers process numbers, and so do machine learning algorithms.
+Therefore, the items we want to process with machine learning algorithms must be represented by numeric <em>features</em>.
+The input in machine learning is often a feature <em>vector</em>, which is a list of numbers.
+While some data is inherently numeric, in law we will often work with text.
+Before we can use text in machine learning it must be converted to feature vectors, which we call <em>vectorizing</em> the data.</p>
+<p>Text can be vectorized in different ways.
+One simple way is to register which words occur in the text.
+We can make a table of the word counts.
+<a class="reference internal" href="#bow-table"><span class="std std-numref">Table 4</span></a> shows an example of word counts for two documents with different topics.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="bow-table">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Word counts for two documents</span><a class="headerlink" href="#bow-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Word</p></th>
+<th class="head"><p>Document 1</p></th>
+<th class="head"><p>Document 2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Oil</p></td>
+<td><p>54</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gas</p></td>
+<td><p>26</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Drilling</p></td>
+<td><p>56</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Marriage</p></td>
+<td><p>0</p></td>
+<td><p>54</p></td>
+</tr>
+<tr class="row-even"><td><p>Parent</p></td>
+<td><p>4</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>Child</p></td>
+<td><p>0</p></td>
+<td><p>20</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is known as a Bag of Words (BoW), because we ignore the order of the words and just lump them together in a “bag”.
+We certainly lose much of the meaning of the text by ignoring the order of the words.
+But the information that is left is enough for some tasks.
+For example, we can use BoW representations to classify documents into topics.</p>
+<p><a class="reference internal" href="#bow-table"><span class="std std-numref">Table 4</span></a> shows that document 1 has many mentions of the words “oil”, “gas”, and “drilling”.
+From this, we can guess that this document probably discusses petroleum law.
+Document 2, on the other hand, has many occurrences of the words “marriage”, “parent”, and “child”.
+This document probably discusses family law.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sorting_filtering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sorting, Filtering Data and Search</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="supervised_learning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Supervised Learning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizing-data">Vectorizing Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

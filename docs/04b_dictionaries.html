@@ -1,0 +1,1152 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dictionaries &#8212; Programming for Lawyers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/04b_dictionaries';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Files and Exceptions" href="05_files_exceptions.html" />
+    <link rel="prev" title="Functions" href="04_functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Programming for Lawyers - Home"/>
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-dark pst-js-only" alt="Programming for Lawyers - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">Programming basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_functions.html">Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_files_exceptions.html">Files and Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabular_data.html">Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting_filtering.html">Sorting, Filtering Data and Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supervised_learning.html">Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAG.html">Retrieval-Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">Appendix: Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JSON-APIs.html">Appendix: JSON and Web APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone-programs.html">Appendix: Standalone Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/UiO-CELL/programming-for-lawyers&urlpath=tree/programming-for-lawyers/docs/04b_dictionaries.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/UiO-CELL/programming-for-lawyers/blob/master/docs/04b_dictionaries.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/edit/master/docs/04b_dictionaries.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/issues/new?title=Issue%20on%20page%20%2Fdocs/04b_dictionaries.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/04b_dictionaries.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dictionaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dictionaries">Creating Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-values">Getting Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-or-changing-values">Adding or Changing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-values">Removing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-a-key-in-the-dictionary">Is a key in the dictionary?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-values-with-default">Getting Values with Default</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-dictionaries">Iterating over Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-value">Finding a Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">Nested Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-large-dictionaries">Examining Large Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-nested-dictionaries">Looping over Nested Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-counting-cases-for-judges">Example: Counting Cases for Judges</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dictionaries">
+<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h1>
+<p>Dictionaries are <em>lookup tables</em>.
+We can use dictionaries to store and look up information.
+Rather than numerical indexes, a dictionary assigns a <em>key</em> to each stored <em>value</em>.
+For example, in an English dictionary, the keys are English words and the values are the meanings of the words.</p>
+<p>We can say that a dictionary is a <em>map</em> from the keys to the values.
+Keys are usually strings, and we can use the key to find the value.</p>
+<p>Like lists, dictionaries can store many different types of data.
+In Python code dictionaries are enclosed in curly brackets: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>.</p>
+<section id="creating-dictionaries">
+<h2>Creating Dictionaries<a class="headerlink" href="#creating-dictionaries" title="Link to this heading">#</a></h2>
+<p>We can create empty dictionaries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">clients</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also create a dictionary containing data with a dictionary <em>literal</em>.
+Here is a client list <em>mapping</em> names (the keys) to phone numbers (the values):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Peder Ås&#39;</span><span class="p">:</span> <span class="mi">5664</span><span class="p">,</span>
+           <span class="s1">&#39;Marte Kirkerud&#39;</span><span class="p">:</span> <span class="mi">8952</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-values">
+<h2>Getting Values<a class="headerlink" href="#getting-values" title="Link to this heading">#</a></h2>
+<p>We can get dictionary values like we can get list items.
+But with dictionaries we use keys instead of numerical indexes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Peder Ås&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5664
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-or-changing-values">
+<h2>Adding or Changing Values<a class="headerlink" href="#adding-or-changing-values" title="Link to this heading">#</a></h2>
+<p>We can add new values to our dictionary.
+Let’s add a new client:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Ole Vold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3009</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clients</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Peder Ås&#39;: 5664, &#39;Marte Kirkerud&#39;: 8952, &#39;Ole Vold&#39;: 3009}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can change existing values the same way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Ole Vold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3131</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clients</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Peder Ås&#39;: 5664, &#39;Marte Kirkerud&#39;: 8952, &#39;Ole Vold&#39;: 3131}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="removing-values">
+<h2>Removing Values<a class="headerlink" href="#removing-values" title="Link to this heading">#</a></h2>
+<p>Like with lists, we can use the method <code class="docutils literal notranslate"><span class="pre">pop()</span></code> to remove a value from a dictionary.
+This method returns the removed value.</p>
+<p>Let’s remove our troublesome client ‘Peder Ås’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="n">clients</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Peder Ås&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Let Peder Ås know at his number&#39;</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">clients</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let Peder Ås know at his number 5664
+{&#39;Marte Kirkerud&#39;: 8952, &#39;Ole Vold&#39;: 3131}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="is-a-key-in-the-dictionary">
+<h2>Is a key in the dictionary?<a class="headerlink" href="#is-a-key-in-the-dictionary" title="Link to this heading">#</a></h2>
+<p>We can use the relational operator <code class="docutils literal notranslate"><span class="pre">in</span></code> to check for the presence of a key in a dictionary.
+This is like checking for an item in a list, but we can only check for keys not values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;Peder Ås&#39;</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Peder Ås&#39;</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Peder Ås is not a client&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Peder Ås is not a client
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-values-with-default">
+<h2>Getting Values with Default<a class="headerlink" href="#getting-values-with-default" title="Link to this heading">#</a></h2>
+<p>If we try to get a key that doesn’t exist, we get an error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Hannah Hanson&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Hannah Hanson&#39;</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: &#39;Hannah Hanson&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can avoid this by using the method <code class="docutils literal notranslate"><span class="pre">.get()</span></code> instead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clients</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Hannah Hanson&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also give <code class="docutils literal notranslate"><span class="pre">.get()</span></code> a default value to return if the key isn’t found, <code class="docutils literal notranslate"><span class="pre">.get(key,</span> <span class="pre">default)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Hannah Hanson&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># Default: empty string</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Hannah Hanson&#39;</span><span class="p">,</span> <span class="s1">&#39;No such client&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;No such client&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is useful for processing data that can have some missing keys.</p>
+</section>
+<section id="iterating-over-dictionaries">
+<h2>Iterating over Dictionaries<a class="headerlink" href="#iterating-over-dictionaries" title="Link to this heading">#</a></h2>
+<p>We can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate over the dictionary, as we did with lists.
+With dictionaries, we iterate over the <em>keys</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;has the phone number&#39;</span><span class="p">,</span> <span class="n">clients</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Marte Kirkerud has the phone number 8952
+Ole Vold has the phone number 3131
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-a-value">
+<h2>Finding a Value<a class="headerlink" href="#finding-a-value" title="Link to this heading">#</a></h2>
+<p>We saw above that the relational operator <code class="docutils literal notranslate"><span class="pre">in</span></code> only works with keys.
+If we want to look for a value, we can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to examine all the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">3131</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">clients</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;has the phone number&#39;</span><span class="p">,</span> <span class="n">clients</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ole Vold has the phone number 3131
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nested-dictionaries">
+<h2>Nested Dictionaries<a class="headerlink" href="#nested-dictionaries" title="Link to this heading">#</a></h2>
+<p>We have seen previously that lists can contain other, nested lists.
+Likewise, dictionaries can contain both lists and nested dictionaries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Peder Ås&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;phone&#39;</span><span class="p">:</span> <span class="mi">5664</span><span class="p">,</span>
+                        <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;Lillevik&#39;</span><span class="p">},</span>
+           <span class="s1">&#39;Marte Kirkerud&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;phone&#39;</span><span class="p">:</span> <span class="mi">8952</span><span class="p">,</span>
+                              <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;Lillevik&#39;</span><span class="p">},</span>
+          <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We must use multiple indexes to access the deeper levels of nested data structures.
+This can be done stepwise:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marte_info</span> <span class="o">=</span> <span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Marte Kirkerud&#39;</span><span class="p">]</span>
+<span class="n">marte_phone</span> <span class="o">=</span> <span class="n">marte_info</span><span class="p">[</span><span class="s1">&#39;phone&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">marte_phone</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8952
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also do multiple steps at a time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marte_phone</span> <span class="o">=</span> <span class="n">clients</span><span class="p">[</span><span class="s1">&#39;Marte Kirkerud&#39;</span><span class="p">][</span><span class="s1">&#39;phone&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">marte_phone</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8952
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a matter of style.
+Choose the variant you think makes sense and makes the code most readable.</p>
+</section>
+<section id="examining-large-dictionaries">
+<h2>Examining Large Dictionaries<a class="headerlink" href="#examining-large-dictionaries" title="Link to this heading">#</a></h2>
+<p>When we use large dictionaries, their content will not fit on the screen. Instead, we can use the method <code class="docutils literal notranslate"><span class="pre">keys()</span></code> to get an overview of their content.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clients</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Peder Ås&#39;, &#39;Marte Kirkerud&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="looping-over-nested-dictionaries">
+<h2>Looping over Nested Dictionaries<a class="headerlink" href="#looping-over-nested-dictionaries" title="Link to this heading">#</a></h2>
+<p>We can use nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to iterate over nested dictionaries.
+This is similar to looping over iterated lists, but we must use the keys to get the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">:</span>
+    <span class="n">client_info</span> <span class="o">=</span> <span class="n">clients</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">entry_name</span> <span class="ow">in</span> <span class="n">client_info</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">client_info</span><span class="p">[</span><span class="n">entry_name</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="n">entry_name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Peder Ås has phone 5664
+Peder Ås has address Lillevik
+Marte Kirkerud has phone 8952
+Marte Kirkerud has address Lillevik
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-counting-cases-for-judges">
+<h2>Example: Counting Cases for Judges<a class="headerlink" href="#example-counting-cases-for-judges" title="Link to this heading">#</a></h2>
+<p>In this example we will collect statistics about judges from a data set of cases from ECtHR.
+The data are an excerpt from <a class="reference external" href="https://echr-opendata.eu/">ECHR-OD</a>, which we will discuss further in <a class="reference internal" href="JSON-APIs.html#json-apis"><span class="std std-ref">Appendix: JSON and Web APIs</span></a>.</p>
+<p>We load the data from a file.
+We will learn how to read files in <a class="reference internal" href="05_files_exceptions.html#files-exceptions"><span class="std std-ref">Files and Exceptions</span></a>, so for now we won’t go into how the file is read.</p>
+<p>If you want to run the code yourself, you can download the file <a class="reference download internal" download="" href="../_downloads/01c79c95d8d87f91d92d7887a6e2e927/cases-5-short.json"><code class="xref download docutils literal notranslate"><span class="pre">cases-5-short.json</span></code></a>.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">read_json_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">text_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">json_data</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="n">read_json_file</span><span class="p">(</span><span class="s1">&#39;cases-5-short.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use a dictionary to count the number of cases each judge has participated in.
+To do this, we use a dictionary where the keys are the judges’ names,
+and the values are the number of cases we have found for that judge.
+The name of the dictionary should describe the contents, and possible names are for example <code class="docutils literal notranslate"><span class="pre">cases_per_judge</span></code> or <code class="docutils literal notranslate"><span class="pre">judge2count</span></code>.
+The latter is a common convention that emphasizes the dictionary’s function as a map from a judge’s name to a count.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judge2count</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can start with a for loop, since we need to process each case.
+We can inspect the keys of the cases by converting them to lists.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">case</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;article&#39;, &#39;country&#39;, &#39;decision_body&#39;, &#39;decisiondate&#39;, &#39;docname&#39;, &#39;doctypebranch&#39;, &#39;importance&#39;, &#39;judgementdate&#39;, &#39;parties&#39;]
+[&#39;article&#39;, &#39;country&#39;, &#39;decision_body&#39;, &#39;decisiondate&#39;, &#39;docname&#39;, &#39;doctypebranch&#39;, &#39;importance&#39;, &#39;judgementdate&#39;, &#39;parties&#39;]
+[&#39;article&#39;, &#39;country&#39;, &#39;decision_body&#39;, &#39;decisiondate&#39;, &#39;docname&#39;, &#39;doctypebranch&#39;, &#39;importance&#39;, &#39;judgementdate&#39;, &#39;parties&#39;]
+[&#39;article&#39;, &#39;country&#39;, &#39;decision_body&#39;, &#39;decisiondate&#39;, &#39;docname&#39;, &#39;doctypebranch&#39;, &#39;importance&#39;, &#39;judgementdate&#39;, &#39;parties&#39;]
+[&#39;article&#39;, &#39;country&#39;, &#39;decision_body&#39;, &#39;decisiondate&#39;, &#39;docname&#39;, &#39;doctypebranch&#39;, &#39;importance&#39;, &#39;judgementdate&#39;, &#39;parties&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also examine the full contents of a single case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">cases</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;article&#39;: [&#39;3&#39;, &#39;6&#39;],
+ &#39;country&#39;: {&#39;alpha2&#39;: &#39;ru&#39;, &#39;name&#39;: &#39;Russian Federation&#39;},
+ &#39;decision_body&#39;: [{&#39;name&#39;: &#39;Helena Jäderblom&#39;, &#39;role&#39;: &#39;president&#39;},
+  {&#39;name&#39;: &#39;Branko Lubarda&#39;, &#39;role&#39;: &#39;judges&#39;},
+  {&#39;name&#39;: &#39;Helen Keller&#39;, &#39;role&#39;: &#39;judges&#39;},
+  {&#39;name&#39;: &#39;Dmitry Dedov&#39;, &#39;role&#39;: &#39;judges&#39;},
+  {&#39;name&#39;: &#39;Pere Pastor Vilanova&#39;, &#39;role&#39;: &#39;judges&#39;},
+  {&#39;name&#39;: &#39;Georgios A. Serghides&#39;, &#39;role&#39;: &#39;judges&#39;},
+  {&#39;name&#39;: &#39;Jolien Schukking&#39;, &#39;role&#39;: &#39;judges&#39;},
+  {&#39;name&#39;: &#39;Stephen Phillips&#39;, &#39;role&#39;: &#39;section registrar&#39;}],
+ &#39;decisiondate&#39;: &#39;&#39;,
+ &#39;docname&#39;: &#39;CASE OF SKLYAR v. RUSSIA&#39;,
+ &#39;doctypebranch&#39;: &#39;CHAMBER&#39;,
+ &#39;importance&#39;: &#39;4&#39;,
+ &#39;judgementdate&#39;: &#39;18/07/2017 00:00:00&#39;,
+ &#39;parties&#39;: [&#39;SKLYAR&#39;, &#39;RUSSIA&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The names of the judges are in the list <code class="docutils literal notranslate"><span class="pre">decision_body</span></code>.
+We can get that:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="n">decision_body</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;decision_body&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">decision_body</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;name&#39;: &#39;Helena Jäderblom&#39;, &#39;role&#39;: &#39;president&#39;}, {&#39;name&#39;: &#39;Branko Lubarda&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Helen Keller&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Dmitry Dedov&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Pere Pastor Vilanova&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Georgios A. Serghides&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Jolien Schukking&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Stephen Phillips&#39;, &#39;role&#39;: &#39;section registrar&#39;}]
+[{&#39;name&#39;: &#39;Luis López Guerra&#39;, &#39;role&#39;: &#39;president&#39;}, {&#39;name&#39;: &#39;Helena Jäderblom&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Helen Keller&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Dmitry Dedov&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Branko Lubarda&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Pere Pastor Vilanova&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Georgios A. Serghides&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Stephen Phillips&#39;, &#39;role&#39;: &#39;section registrar&#39;}]
+[{&#39;name&#39;: &#39;MrJ. Hedigan&#39;, &#39;role&#39;: &#39;president&#39;}, {&#39;name&#39;: &#39;MrB.M. Zupančič&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;MrC. Bîrsan&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;MrV. Zagrebelsky&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;MrsA. Gyulumyan&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;MrDavid Thór Björgvinsson&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;MrsI. Ziemele&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Mr V. Berger&#39;, &#39;role&#39;: &#39;section registrar&#39;}]
+[{&#39;name&#39;: &#39;Nina Vajić&#39;, &#39;role&#39;: &#39;president&#39;}, {&#39;name&#39;: &#39;Anatoly Kovler&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Khanlar Hajiyev&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Mirjana Lazarova Trajkovska&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Julia Laffranque&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Linos-Alexandre Sicilianos&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Erik Møse&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Søren Nielsen&#39;, &#39;role&#39;: &#39;section registrar&#39;}]
+[{&#39;name&#39;: &#39;Françoise Tulkens&#39;, &#39;role&#39;: &#39;president&#39;}, {&#39;name&#39;: &#39;Ireneu Cabral Barreto&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Vladimiro Zagrebelsky&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Danutė Jočienė&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;András Sajó&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Nona Tsotsoria&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Işıl Karakaş&#39;, &#39;role&#39;: &#39;judges&#39;}, {&#39;name&#39;: &#39;Sally Dollé&#39;, &#39;role&#39;: &#39;section registrar&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can loop over the decision body to get the names of the judges.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="n">decision_body</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;decision_body&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">decision_body</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">judge</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Helena Jäderblom
+Branko Lubarda
+Helen Keller
+Dmitry Dedov
+Pere Pastor Vilanova
+Georgios A. Serghides
+Jolien Schukking
+Stephen Phillips
+Luis López Guerra
+Helena Jäderblom
+Helen Keller
+Dmitry Dedov
+Branko Lubarda
+Pere Pastor Vilanova
+Georgios A. Serghides
+Stephen Phillips
+MrJ. Hedigan
+MrB.M. Zupančič
+MrC. Bîrsan
+MrV. Zagrebelsky
+MrsA. Gyulumyan
+MrDavid Thór Björgvinsson
+MrsI. Ziemele
+Mr V. Berger
+Nina Vajić
+Anatoly Kovler
+Khanlar Hajiyev
+Mirjana Lazarova Trajkovska
+Julia Laffranque
+Linos-Alexandre Sicilianos
+Erik Møse
+Søren Nielsen
+Françoise Tulkens
+Ireneu Cabral Barreto
+Vladimiro Zagrebelsky
+Danutė Jočienė
+András Sajó
+Nona Tsotsoria
+Işıl Karakaş
+Sally Dollé
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can count the names using our dictionary. If the name already exists in the dictionary, we can increase the count by one.
+We can do this by using the combined <em>addition assignment</em> operator <code class="docutils literal notranslate"><span class="pre">+=</span></code>.
+This adds the value of the expression on the right-hand side to the variable on the left-hand side.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="n">decision_body</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;decision_body&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">decision_body</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">judge</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">judge2count</span><span class="p">:</span>
+            <span class="n">judge2count</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the name is not already in the dictionary, we need to add it.
+We set the value to 1 since this is the first instance of that name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="n">decision_body</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;decision_body&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">decision_body</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">judge</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">judge2count</span><span class="p">:</span>
+            <span class="n">judge2count</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">judge2count</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s it!
+We can print the results.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">judge2count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Helena Jäderblom&#39;: 2,
+ &#39;Branko Lubarda&#39;: 2,
+ &#39;Helen Keller&#39;: 2,
+ &#39;Dmitry Dedov&#39;: 2,
+ &#39;Pere Pastor Vilanova&#39;: 2,
+ &#39;Georgios A. Serghides&#39;: 2,
+ &#39;Jolien Schukking&#39;: 1,
+ &#39;Stephen Phillips&#39;: 2,
+ &#39;Luis López Guerra&#39;: 1,
+ &#39;MrJ. Hedigan&#39;: 1,
+ &#39;MrB.M. Zupančič&#39;: 1,
+ &#39;MrC. Bîrsan&#39;: 1,
+ &#39;MrV. Zagrebelsky&#39;: 1,
+ &#39;MrsA. Gyulumyan&#39;: 1,
+ &#39;MrDavid Thór Björgvinsson&#39;: 1,
+ &#39;MrsI. Ziemele&#39;: 1,
+ &#39;Mr V. Berger&#39;: 1,
+ &#39;Nina Vajić&#39;: 1,
+ &#39;Anatoly Kovler&#39;: 1,
+ &#39;Khanlar Hajiyev&#39;: 1,
+ &#39;Mirjana Lazarova Trajkovska&#39;: 1,
+ &#39;Julia Laffranque&#39;: 1,
+ &#39;Linos-Alexandre Sicilianos&#39;: 1,
+ &#39;Erik Møse&#39;: 1,
+ &#39;Søren Nielsen&#39;: 1,
+ &#39;Françoise Tulkens&#39;: 1,
+ &#39;Ireneu Cabral Barreto&#39;: 1,
+ &#39;Vladimiro Zagrebelsky&#39;: 1,
+ &#39;Danutė Jočienė&#39;: 1,
+ &#39;András Sajó&#39;: 1,
+ &#39;Nona Tsotsoria&#39;: 1,
+ &#39;Işıl Karakaş&#39;: 1,
+ &#39;Sally Dollé&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<p>In <a class="reference internal" href="sorting_filtering.html#sorting-filtering"><span class="std std-ref">Sorting, Filtering Data and Search</span></a>, we will see how we can sort the results to present an ordered list of the judges with the most cases.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_files_exceptions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Files and Exceptions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dictionaries">Creating Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-values">Getting Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-or-changing-values">Adding or Changing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-values">Removing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-a-key-in-the-dictionary">Is a key in the dictionary?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-values-with-default">Getting Values with Default</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-dictionaries">Iterating over Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-value">Finding a Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">Nested Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-large-dictionaries">Examining Large Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-nested-dictionaries">Looping over Nested Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-counting-cases-for-judges">Example: Counting Cases for Judges</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

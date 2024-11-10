@@ -1,0 +1,1277 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Files and Exceptions &#8212; Programming for Lawyers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/05_files_exceptions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tabular Data" href="tabular_data.html" />
+    <link rel="prev" title="Dictionaries" href="04b_dictionaries.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Programming for Lawyers - Home"/>
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-dark pst-js-only" alt="Programming for Lawyers - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">Programming basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Files and Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabular_data.html">Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting_filtering.html">Sorting, Filtering Data and Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supervised_learning.html">Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAG.html">Retrieval-Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">Appendix: Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JSON-APIs.html">Appendix: JSON and Web APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone-programs.html">Appendix: Standalone Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/UiO-CELL/programming-for-lawyers&urlpath=tree/programming-for-lawyers/docs/05_files_exceptions.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/UiO-CELL/programming-for-lawyers/blob/master/docs/05_files_exceptions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/edit/master/docs/05_files_exceptions.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/issues/new?title=Issue%20on%20page%20%2Fdocs/05_files_exceptions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/05_files_exceptions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Files and Exceptions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-files">Opening Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-file-content">Reading the File Content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-whitespace">Removing Whitespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-strings">Splitting Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-strings">Joining Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-information">Extracting Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">Writing Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-exceptions">Handling Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-multiple-exceptions">Handling Multiple Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">F-strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">Raising Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-multiple-files">Opening Multiple Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-files-by-type">Opening Files by Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-only-the-first-few-files">Opening Only the First Few Files</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="files-and-exceptions">
+<span id="files-exceptions"></span><h1>Files and Exceptions<a class="headerlink" href="#files-and-exceptions" title="Link to this heading">#</a></h1>
+<p>We often need to read data from files. With Python we can read many different formats, for example Word documents, PDF documents, or tabular data in Excel or CSV format.
+Some of these file formats require third-party libraries.
+Here, we will look at reading from and writing to plain text files.</p>
+<section id="opening-files">
+<h2>Opening Files<a class="headerlink" href="#opening-files" title="Link to this heading">#</a></h2>
+<p>We can open a file containing the introduction to an ECtHR case:
+<a class="reference download internal" download="" href="../_downloads/21f17666677de22d8d60afd8e1431f4f/LO-NTF-v-Norway.txt"><code class="xref download docutils literal notranslate"><span class="pre">LO-NTF-v-Norway.txt</span></code></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;LO-NTF-v-Norway.txt&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can open files with the function <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can optionally specify the text encoding, which is often UTF-8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function directly and assign the result to a variable, as above.
+However, open files consume system resources.
+Therefore, we must always remember to close files when we are finished with them.
+A large program or web application that keeps opening files without closing them will eventually run out of memory and crash.</p>
+<p>Python can automatically close files for us if we use the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;LO-NTF-v-Norway.txt&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><em>Always</em> use <code class="docutils literal notranslate"><span class="pre">with</span></code> when opening files.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement above prints a description of the file object, not the file content.
+We must use methods of this object to get the content.</p>
+</div>
+</section>
+<section id="reading-the-file-content">
+<h2>Reading the File Content<a class="headerlink" href="#reading-the-file-content" title="Link to this heading">#</a></h2>
+<p>We can use the method <code class="docutils literal notranslate"><span class="pre">readline()</span></code> to read single lines from the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NORWEGIAN CONFEDERATION OF TRADE UNIONS (LO) AND NORWEGIAN
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to process the file line by line.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NORWEGIAN CONFEDERATION OF TRADE UNIONS (LO) AND NORWEGIAN
+
+TRANSPORT WORKERS’ UNION (NTF) v. NORWAY JUDGMENT
+
+
+
+In the case of Norwegian Confederation of Trade Unions (LO) and
+
+Norwegian Transport Workers’ Union (NTF) v. Norway,
+
+The European Court of Human Rights (Fifth Section), sitting as a
+
+Chamber composed of:
+
+Síofra O’Leary, President,
+
+Mārtiņš Mits,
+
+Stéphanie Mourou-Vikström,
+
+Lətif Hüseynov,
+
+Jovan Ilievski,
+
+Ivana Jelić, judges,
+
+Anne Grøstad, ad hoc judge,
+
+and Victor Soloveytchik, Section Registrar,
+
+Having regard to:
+
+the application against the Kingdom of Norway lodged with the Court
+
+under Article 34 of the Convention for the Protection of Human Rights and
+
+Fundamental Freedoms (“the Convention”) by two Norwegian associations,
+
+the Norwegian Confederation of Trade Unions (Landsorganisasjonen i
+
+Norge (“LO”)) and the Norwegian Transport Workers’ Union (Norsk
+
+transportarbeiderforbund (“NTF”)) (“the applicant unions”), on 15 June
+
+2017;
+
+the withdrawal of Arnfinn Bårdsen, the judge elected in respect of
+
+Norway, from sitting in the case (Rule 28 § 3 of the Rules of Court) and the
+
+decision of the President of the Section to appoint Anne Grøstad to sit as an
+
+ad hoc judge (Article 26 § 4 of the Convention and Rule 29 § 1(a));
+
+the decision to give notice to the Norwegian Government (“the
+
+Government”) of the complaint concerning Article 11 of the Convention
+
+and to declare inadmissible the remainder of the application;
+
+the observations submitted by the respondent Government and the
+
+observations in reply submitted by the applicants;
+
+the comments submitted by the European Trade Union Confederation
+
+(ETUC), which was granted leave to intervene by the President of the
+
+Section;
+
+Having deliberated in private on 18 May 2021,
+
+Delivers the following judgment, which was adopted on that date:
+
+
+
+INTRODUCTION
+
+
+
+1. The case concerns the alleged violation of Article 11 of the
+
+Convention in relation to a decision by the Norwegian Supreme Court to
+
+declare unlawful an announced boycott by a trade union which was planned
+
+in order to pressure a Norwegian subsidiary of a Danish company to enter
+
+into a Norwegian collective agreement applicable to dockworkers.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="removing-whitespace">
+<h2>Removing Whitespace<a class="headerlink" href="#removing-whitespace" title="Link to this heading">#</a></h2>
+<p>When we print the file content above, we get a blank line between each line.
+This is because the lines we read contain a newline, <code class="docutils literal notranslate"><span class="pre">\n</span></code>, and the print statement also insert a newline.
+To avoid this, we should remove <em>leading</em> and <em>trailing</em> whitespace with the string method <code class="docutils literal notranslate"><span class="pre">strip()</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NORWEGIAN CONFEDERATION OF TRADE UNIONS (LO) AND NORWEGIAN
+TRANSPORT WORKERS’ UNION (NTF) v. NORWAY JUDGMENT
+
+In the case of Norwegian Confederation of Trade Unions (LO) and
+Norwegian Transport Workers’ Union (NTF) v. Norway,
+The European Court of Human Rights (Fifth Section), sitting as a
+Chamber composed of:
+Síofra O’Leary, President,
+Mārtiņš Mits,
+Stéphanie Mourou-Vikström,
+Lətif Hüseynov,
+Jovan Ilievski,
+Ivana Jelić, judges,
+Anne Grøstad, ad hoc judge,
+and Victor Soloveytchik, Section Registrar,
+Having regard to:
+the application against the Kingdom of Norway lodged with the Court
+under Article 34 of the Convention for the Protection of Human Rights and
+Fundamental Freedoms (“the Convention”) by two Norwegian associations,
+the Norwegian Confederation of Trade Unions (Landsorganisasjonen i
+Norge (“LO”)) and the Norwegian Transport Workers’ Union (Norsk
+transportarbeiderforbund (“NTF”)) (“the applicant unions”), on 15 June
+2017;
+the withdrawal of Arnfinn Bårdsen, the judge elected in respect of
+Norway, from sitting in the case (Rule 28 § 3 of the Rules of Court) and the
+decision of the President of the Section to appoint Anne Grøstad to sit as an
+ad hoc judge (Article 26 § 4 of the Convention and Rule 29 § 1(a));
+the decision to give notice to the Norwegian Government (“the
+Government”) of the complaint concerning Article 11 of the Convention
+and to declare inadmissible the remainder of the application;
+the observations submitted by the respondent Government and the
+observations in reply submitted by the applicants;
+the comments submitted by the European Trade Union Confederation
+(ETUC), which was granted leave to intervene by the President of the
+Section;
+Having deliberated in private on 18 May 2021,
+Delivers the following judgment, which was adopted on that date:
+
+INTRODUCTION
+
+1. The case concerns the alleged violation of Article 11 of the
+Convention in relation to a decision by the Norwegian Supreme Court to
+declare unlawful an announced boycott by a trade union which was planned
+in order to pressure a Norwegian subsidiary of a Danish company to enter
+into a Norwegian collective agreement applicable to dockworkers.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="splitting-strings">
+<h2>Splitting Strings<a class="headerlink" href="#splitting-strings" title="Link to this heading">#</a></h2>
+<p>Sometimes we need to process text word by word.
+To do this, we can use the string method <code class="docutils literal notranslate"><span class="pre">split()</span></code>, which splits a string on whitespace by default.
+We can also specify some other character to split on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;NORWEGIAN&#39;, &#39;CONFEDERATION&#39;, &#39;OF&#39;, &#39;TRADE&#39;, &#39;UNIONS&#39;, &#39;(LO)&#39;, &#39;AND&#39;, &#39;NORWEGIAN&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="joining-strings">
+<h2>Joining Strings<a class="headerlink" href="#joining-strings" title="Link to this heading">#</a></h2>
+<p>When we have processed the information in the list, we can <code class="docutils literal notranslate"><span class="pre">join()</span></code> the items into a new string.
+We could use a new separator for joining the items.
+For example, in filenames we might use underscores instead of spaces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NORWEGIAN_CONFEDERATION_OF_TRADE_UNIONS_(LO)_AND_NORWEGIAN
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extracting-information">
+<h2>Extracting Information<a class="headerlink" href="#extracting-information" title="Link to this heading">#</a></h2>
+<p>We want to extract the list of judges from the case into a Python list.
+The list of judges starts with the President, and ends with the Registrar.
+We can use these cues to extract the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">found_start</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">judges</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">found_start</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;president&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">found_start</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">judges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">judges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;registrar&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Síofra O’Leary, President,&#39;, &#39;Mārtiņš Mits,&#39;, &#39;Stéphanie Mourou-Vikström,&#39;, &#39;Lətif Hüseynov,&#39;, &#39;Jovan Ilievski,&#39;, &#39;Ivana Jelić, judges,&#39;, &#39;Anne Grøstad, ad hoc judge,&#39;, &#39;and Victor Soloveytchik, Section Registrar,&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we use the statement <code class="docutils literal notranslate"><span class="pre">break</span></code> to stop the loop as soon as we find the registrar.
+This code still has room for improvement. For example, the extracted names contain commas.
+This is left as an exercise.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We could easily extract this information by hand from a single document.
+But with Python code, we can extract the information from <em>thousands</em> of documents in a short time.</p>
+</div>
+</section>
+<section id="writing-files">
+<h2>Writing Files<a class="headerlink" href="#writing-files" title="Link to this heading">#</a></h2>
+<p>We can also write data to files. Let’s store the list of judges in a text file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_file_name</span> <span class="o">=</span> <span class="s1">&#39;judges.txt&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we want to open a file for writing, we need to specify <em>writing mode</em>, with the mode parameter <code class="docutils literal notranslate"><span class="pre">'w'</span></code>.</p>
+<p>The mode has the default value <code class="docutils literal notranslate"><span class="pre">'r'</span></code> for reading, but for consistency we can specify this parameter even when reading.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-pass-statements admonition">
+<p class="admonition-title">Pass Statements</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">pass</span></code> statements to do nothing in the code block.
+The <code class="docutils literal notranslate"><span class="pre">with</span></code> statement and all other statements expecting an indented code block must contain at least one statement to be valid.</p>
+</div>
+<p>Once the file has been opened, we can write to it with a <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement.
+We must give <code class="docutils literal notranslate"><span class="pre">print()</span></code> a <code class="docutils literal notranslate"><span class="pre">file</span></code> parameter to send the text to a file instead of the console.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">outfile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">#</a></h2>
+<p>When something goes wrong in a program, an <em>exception</em> is <em>raised</em>.
+An exception is a “signal” that an error has occurred and must be handled.
+For example, exceptions can occur when user input doesn’t match the expectations.
+We should handle exceptions that might occur.</p>
+<p>For example, trying to open a file that doesn’t exist raises an exception:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;non-existing-file.txt&#39;</span> <span class="c1"># often from user input</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;non-existing-file.txt&#39;</span> <span class="c1"># often from user input</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.15/x64/lib/python3.10/site-packages/IPython/core/interactiveshell.py:324,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">324</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;non-existing-file.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, we get a <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> exception.
+Unhandled exceptions make the program stop or crash.</p>
+</section>
+<section id="handling-exceptions">
+<h2>Handling Exceptions<a class="headerlink" href="#handling-exceptions" title="Link to this heading">#</a></h2>
+<p>We can handle exceptions with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> statements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no such file:&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no such file: non-existing-file.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, instead of crashing the program will keep running.</p>
+</section>
+<section id="handling-multiple-exceptions">
+<h2>Handling Multiple Exceptions<a class="headerlink" href="#handling-multiple-exceptions" title="Link to this heading">#</a></h2>
+<p>We can also handle multiple exceptions. We can handle different exceptions differently.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no such file:&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error opening file:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no such file: non-existing-file.txt
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>We handle more specific exceptions first, then more general exceptions. The most general exception is just called <code class="docutils literal notranslate"><span class="pre">Exception</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no such file:&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error reading from file:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exception:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no such file: non-existing-file.txt
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="f-strings">
+<h2>F-strings<a class="headerlink" href="#f-strings" title="Link to this heading">#</a></h2>
+<p>Printing strings that contain many variables can be cumbersome.
+For example, we could print names and phone numbers like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Peder Ås&#39;</span>
+<span class="n">phone</span> <span class="o">=</span> <span class="mi">5367</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Please call&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;at phone number&#39;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="s1">&#39;ASAP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please call Peder Ås at phone number 5367 ASAP
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are a lot of quotes and commas that need to be in the right place.
+Some prefer using f-strings, short for formatted strings.
+F-strings start with an “f” before the first quote:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Please call </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> at phone number </span><span class="si">{</span><span class="n">phone</span><span class="si">}</span><span class="s1"> ASAP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please call Peder Ås at phone number 5367 ASAP
+</pre></div>
+</div>
+</div>
+</div>
+<p>The curly brackets can contain expressions, for example a dictionary lookup:</p>
+<div class="cell tag_raises-exception tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Please call </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> at phone number </span><span class="si">{</span><span class="n">clients</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="si">}</span><span class="s1"> ASAP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="raising-exceptions">
+<h2>Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Link to this heading">#</a></h2>
+<p>We can make our own exceptions if something goes wrong.
+We signal an exception with a <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement.
+The exception needs to be handled by some other part of our program.</p>
+<p>Say we have a function that is called with some user input as an argument.</p>
+<div class="cell tag_raises-exception tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Peder Ås&#39;</span><span class="p">:</span> <span class="mi">5664</span><span class="p">,</span>
+           <span class="s1">&#39;Marte Kirkerud&#39;</span><span class="p">:</span> <span class="mi">8952</span><span class="p">}</span>
+<span class="n">input_from_user</span> <span class="o">=</span> <span class="s1">&#39;Peder Ås&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We check if the user input is correct.
+If the input is incorrect, we need to signal back to the caller with an exception.
+In many functions, we can’t show an error message directly to the user because interaction with the user is handled by a different part of the program.</p>
+<div class="cell tag_raises-exception tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">input_from_user</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">input_from_user</span><span class="si">}</span><span class="s1"> has number </span><span class="si">{</span><span class="n">clients</span><span class="p">[</span><span class="n">input_from_user</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">input_from_user</span><span class="si">}</span><span class="s1"> is not a client&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Peder Ås has number 5664
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="opening-multiple-files">
+<h2>Opening Multiple Files<a class="headerlink" href="#opening-multiple-files" title="Link to this heading">#</a></h2>
+<p>Some data sets store all the data in a single file.
+But the data can also be split into many smaller files.
+Then, we will need to iterate over the files the files to open them.
+Python has the library <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> for working with directories (folders) and file names.
+We use <code class="docutils literal notranslate"><span class="pre">Path</span></code> from this library.</p>
+<p>First, we must import it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We make a new <code class="docutils literal notranslate"><span class="pre">Path</span></code> object for our directory “data”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the object “directory”, we can make an iterator over the files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_iterator</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We loop over this iterator to open the files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">file_iterator</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;data/case-4.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-3.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-9.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-0.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-1.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-5.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-7.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/LO-NTF-v-Norway.txt&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-8.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-2.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-6.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inside the loop, we can handle each file individually.</p>
+</section>
+<section id="opening-files-by-type">
+<h2>Opening Files by Type<a class="headerlink" href="#opening-files-by-type" title="Link to this heading">#</a></h2>
+<p>If we have a directory that contains multiple file types, we might want to open only some of the files.
+We can filter on the <em>filename extension</em> using the method <code class="docutils literal notranslate"><span class="pre">.glob(pattern)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.txt&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">filenames</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PosixPath(&#39;data/LO-NTF-v-Norway.txt&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-filename-extensions admonition">
+<p class="admonition-title">Filename Extensions</p>
+<p>Filenames usually have two parts, the <em>stem</em> and the <em>extension</em>, separated by a period.
+For example, the file “article.docx” has the stem “article” and the extension “docx”.
+The extension identifies the file type.</p>
+</div>
+</section>
+<section id="opening-only-the-first-few-files">
+<h2>Opening Only the First Few Files<a class="headerlink" href="#opening-only-the-first-few-files" title="Link to this heading">#</a></h2>
+<p>If we have large data set, it can take time to process.
+During development, we might want to run our code with only the first few files.
+We can use <code class="docutils literal notranslate"><span class="pre">range()</span></code> for this.
+Below, we open only the first five files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_iterator</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_iterator</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;data/case-4.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-3.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-9.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-0.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+&lt;_io.TextIOWrapper name=&#39;data/case-1.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04b_dictionaries.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dictionaries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tabular_data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tabular Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-files">Opening Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-file-content">Reading the File Content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-whitespace">Removing Whitespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-strings">Splitting Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-strings">Joining Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-information">Extracting Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">Writing Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-exceptions">Handling Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-multiple-exceptions">Handling Multiple Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">F-strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raising-exceptions">Raising Exceptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-multiple-files">Opening Multiple Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-files-by-type">Opening Files by Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-only-the-first-few-files">Opening Only the First Few Files</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

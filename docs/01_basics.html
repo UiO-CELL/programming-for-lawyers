@@ -1,0 +1,1301 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Programming basics &#8212; Programming for Lawyers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_basics';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Decisions" href="02_decisions.html" />
+    <link rel="prev" title="An Introduction to Programming for Lawyers" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Programming for Lawyers - Home"/>
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-dark pst-js-only" alt="Programming for Lawyers - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Programming basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_files_exceptions.html">Files and Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabular_data.html">Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting_filtering.html">Sorting, Filtering Data and Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supervised_learning.html">Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAG.html">Retrieval-Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">Appendix: Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JSON-APIs.html">Appendix: JSON and Web APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone-programs.html">Appendix: Standalone Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/UiO-CELL/programming-for-lawyers&urlpath=tree/programming-for-lawyers/docs/01_basics.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/UiO-CELL/programming-for-lawyers/blob/master/docs/01_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/edit/master/docs/01_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/issues/new?title=Issue%20on%20page%20%2Fdocs/01_basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/01_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Programming basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-as-a-calculator">Using Python as a Calculator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-to-the-screen-terminal">Printing to the Screen (Terminal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-are-independent">Variables are Independent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-and-expressions">Statements and Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commenting-code">Commenting Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions-and-methods">Calling Functions and Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-regular-functions">Calling Regular Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-function-calls">Nested Function Calls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-methods">Calling Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-input-from-the-user">Getting input from the user</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-strings-and-numbers">Converting between strings and numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-and-modules">Importing libraries and modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-dates">Parsing dates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-concatenation">String concatenation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">F-strings</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="programming-basics">
+<h1>Programming basics<a class="headerlink" href="#programming-basics" title="Link to this heading">#</a></h1>
+<p>Programming is a way of telling the computer what to do.
+Computer programs are a kind of recipe, like cooking or knitting recipes.
+However, cooking recipes can sometimes be vague or imprecise. For example, an instruction could be “add 4-5 eggs” 	or “bake for 25-30 minutes till done”.
+Because humans have discretion, we can make sense of such vague instructions.
+Unfortunately, computers don’t have discretion.
+Therefore, computer programs must be both precise and correct.</p>
+<section id="using-python-as-a-calculator">
+<h2>Using Python as a Calculator<a class="headerlink" href="#using-python-as-a-calculator" title="Link to this heading">#</a></h2>
+<p>One simple use of Python is as a calculator. We can use the four arithmetic operations: <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span></code>. Multiplication is done with the asterisk <code class="docutils literal notranslate"><span class="pre">*</span></code>, and division with the slash <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more complicated expressions, we can use parenthesizes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="printing-to-the-screen-terminal">
+<h2>Printing to the Screen (Terminal)<a class="headerlink" href="#printing-to-the-screen-terminal" title="Link to this heading">#</a></h2>
+<p>Jupyter Notebook only displays the value of the final <em>statement</em> in a cell.
+If you want to see the value of other statements, you need to print them to the screen.</p>
+<p>In Python, you can use the function print() to display things on the screen.
+Put the item(s) to be printed inside the parentheses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+0 1 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also print text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;See you in court&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>See you in court
+</pre></div>
+</div>
+</div>
+</div>
+<p>Text strings can be enclosed in single or double quotes, but you <em>must</em> use the same type of quote before and after the string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;See you in court&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>See you in court
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
+<p>In the examples above, the computer “forgets” the information as soon as it has been printed. We need some way to store information in our program. This is what variables are for. Variables are like handles we use to retrieve information.</p>
+<p>In Python, variables can be <em>defined</em> or <em>assigned</em> a value as shown in the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">=</span></code> in Python does not mean equality as in mathematics, but is an assignment where the value or <em>expression</em> on the right hand side is stored in the variable on the left side.</p>
+<p>We can see this when we increase the count. No variable can be equal to itself plus something:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variable-names">
+<h2>Variable Names<a class="headerlink" href="#variable-names" title="Link to this heading">#</a></h2>
+<p>It’s important to choose good variable names.
+The names are meant to be read and understood by people,
+whether it’s a colleague or yourself in a couple of months.
+Make <em>descriptive, meaningful</em> variable names, that are neither too short or nor too long.</p>
+<p>Variable names can contain:</p>
+<ul class="simple">
+<li><p>all letters in the <em>English</em> alphabet.</p></li>
+<li><p><em>underscore</em>: _</p></li>
+<li><p>numbers, but a variable name cannot <em>start</em> with a number</p></li>
+</ul>
+<p>This is a valid, but perhaps too long variable name:</p>
+<p><code class="docutils literal notranslate"><span class="pre">name_of_defendant_01</span> <span class="pre">=</span> <span class="pre">'John</span> <span class="pre">Smith'</span></code></p>
+</section>
+<section id="variables-are-independent">
+<h2>Variables are Independent<a class="headerlink" href="#variables-are-independent" title="Link to this heading">#</a></h2>
+<p>Python variables are <em>independent</em> of each other.
+Let’s define two variables. Alice is 20 years old, and her classmate Bob is the same age:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alice_age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">bob_age</span> <span class="o">=</span> <span class="n">alice_age</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then it’s Alice’s birthday. Now, what’s the value of bob_age?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alice_age</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bob_age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is 20, <code class="docutils literal notranslate"><span class="pre">bob_age</span></code> hasn’t changed even though <code class="docutils literal notranslate"><span class="pre">alice_age</span></code> did.</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">bob_age</span></code> is independent from <code class="docutils literal notranslate"><span class="pre">alice_age</span></code>, even though it was initially assigned the value from <code class="docutils literal notranslate"><span class="pre">alice_age</span></code>.
+This is just the way variables are defined in Python. It would be perfectly fine to have another kind of variable where the two variables are connected, but this is not how standard Python variables work.</p>
+</section>
+<section id="statements-and-expressions">
+<h2>Statements and Expressions<a class="headerlink" href="#statements-and-expressions" title="Link to this heading">#</a></h2>
+<p>A <em>statement</em> tells Python to do something, while an <em>expression</em> has a value, for example a number.
+A statement is often a line of code, but long statements can span multiple lines.
+This line is a single statement that contains two expressions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bob_age</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h2>
+<p>Python has three basic <em>data types</em> which are sometimes called <em>variable types</em>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>, short for string, is for text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>, short for integer, are whole numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> is for decimal numbers, which are also known as <em>floating-point numbers</em></p></li>
+</ul>
+<p>We can use the function <code class="docutils literal notranslate"><span class="pre">type()</span></code> to get the type of an item:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A number in quotes is interpreted as a string, and can’t be used in arithmetic.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="commenting-code">
+<h2>Commenting Code<a class="headerlink" href="#commenting-code" title="Link to this heading">#</a></h2>
+<p>Comments can make your code easier to understand.
+You can use a <code class="docutils literal notranslate"><span class="pre">#</span></code> character to start a single line comment.
+To write a comment consisting of multiple lines, you use three
+quotes <code class="docutils literal notranslate"><span class="pre">'''</span></code> before and after the comment.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comments can clarify code</span>
+
+<span class="n">defendant_name</span> <span class="o">=</span> <span class="s1">&#39;John Doe&#39;</span> <span class="c1"># This is an end of line comment</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">You can also write a comment spanning multiple lines.</span>
+<span class="sd">This is useful for documentation.</span>
+
+<span class="sd">These comments are enclosed in three single quotes.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calling-functions-and-methods">
+<h2>Calling Functions and Methods<a class="headerlink" href="#calling-functions-and-methods" title="Link to this heading">#</a></h2>
+<p>There are two types of functions in Python: regular functions and object methods that are tied to a data object.</p>
+<section id="calling-regular-functions">
+<h3>Calling Regular Functions<a class="headerlink" href="#calling-regular-functions" title="Link to this heading">#</a></h3>
+<p>Python has a number of built-in functions that we can use. When we use a function, we say that we are <em>calling</em> it.</p>
+<p>For example, we can get the length of a string with the function <code class="docutils literal notranslate"><span class="pre">len()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">defendant</span> <span class="o">=</span> <span class="s1">&#39;John Doe&#39;</span>
+<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">defendant</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>The items within the parenthesis are called the arguments of the function.
+Functions can have zero or more arguments. We have used the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function with multiple arguments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of the string:&#39;</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length of the string: 8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nested-function-calls">
+<h3>Nested Function Calls<a class="headerlink" href="#nested-function-calls" title="Link to this heading">#</a></h3>
+<p>Above, we called the two functions separately, on different lines.
+We can also <em>nest</em> the function calls on a single line.
+Then, the result of the innermost call is used as the argument to the outer call.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">defendant</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calling-methods">
+<h3>Calling Methods<a class="headerlink" href="#calling-methods" title="Link to this heading">#</a></h3>
+<p>Strings are a kind of <em>objects</em> in Python. Objects are a collection of data and functions that are grouped together. Functions that belong to an object are called <em>methods</em>.
+We can use methods belonging to string objects.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;string&gt;.upper()</span></code> returns the string in uppercase. <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> is a placeholder for the name of a string variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">defendant</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JOHN DOE
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;string&gt;.lower()</span></code> returns the string in lowercase.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;string&gt;.replace(old,</span> <span class="pre">new)</span></code> replaces all occurrences of the substring <code class="docutils literal notranslate"><span class="pre">old</span></code> with the string <code class="docutils literal notranslate"><span class="pre">new</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">defendant</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>John Smith
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="getting-input-from-the-user">
+<h2>Getting input from the user<a class="headerlink" href="#getting-input-from-the-user" title="Link to this heading">#</a></h2>
+<p>Python has the built-in function <code class="docutils literal notranslate"><span class="pre">input(prompt)</span></code> to ask the user for input.
+The argument <code class="docutils literal notranslate"><span class="pre">prompt</span></code> is a string that will be displayed to the user.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Client name: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New client:&#39;</span><span class="p">,</span> <span class="n">client_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Client name:  Scar
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New client: Scar
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Python does not stop you from using the name of a built-in function as a variable name. But if you do that, the function will no longer work, because the name now refers to something else. Below, we try to assign a value to the variable <code class="docutils literal notranslate"><span class="pre">input</span></code>. This breaks the function <code class="docutils literal notranslate"><span class="pre">input()</span></code>.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_input</span> <span class="o">=</span> <span class="nb">input</span> <span class="c1"># save built-in before we overwrite it </span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Client name: &quot;</span><span class="p">)</span> <span class="c1"># DON&#39;T do this, breaks the function input()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New client:&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span>
+<span class="n">input2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Client address: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Client name:  Scar
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New client: Scar
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [22],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Client name: &quot;</span><span class="p">)</span> <span class="c1"># DON&#39;T do this, breaks the function input()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New client:&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">input2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Client address: &quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;str&#39; object is not callable
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span> <span class="o">=</span> <span class="n">original_input</span> <span class="c1"># restore built-in input() function</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When we execute a cell, Jupyter Notebook stores the variable it defines in the execution <em>kernel</em>.
+This means that even if we fix the code by changing the variable name from <code class="docutils literal notranslate"><span class="pre">input</span></code> to something else, our definition of input still exists. To erase the variable we must restart the kernel by clicking “Kernel” and “Restart” in the Jupyter Notebook menu.</p>
+</div>
+</section>
+<section id="converting-between-strings-and-numbers">
+<h2>Converting between strings and numbers<a class="headerlink" href="#converting-between-strings-and-numbers" title="Link to this heading">#</a></h2>
+<p>Sometimes we need to convert a string to a number (or vice versa).</p>
+<p>We can do this with the functions <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">float()</span></code>, and  <code class="docutils literal notranslate"><span class="pre">str()</span></code>.
+For example, the function <code class="docutils literal notranslate"><span class="pre">input()</span></code> always returns a text string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you? &#39;</span><span class="p">)</span>
+<span class="n">double_age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;In&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;years, you will be&#39;</span><span class="p">,</span> <span class="n">double_age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>How old are you?  21
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In 21 years, you will be 2121
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that because <code class="docutils literal notranslate"><span class="pre">age</span></code> is a string, it gets repeated not multiplied.
+We need to convert it, and we can do so by chaining <code class="docutils literal notranslate"><span class="pre">int()</span></code> and <code class="docutils literal notranslate"><span class="pre">input()</span></code> on the same line.
+By converting the value immediately, there’s no risk of using it before it’s been converted.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you? &#39;</span><span class="p">))</span>
+<span class="n">double_age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;In&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;years, you will be&#39;</span><span class="p">,</span> <span class="n">double_age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>How old are you?  21
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In 21 years, you will be 42
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also convert between integers and floating-point numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mf">3.8</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="danger admonition">
+<p class="admonition-title">Rounding Errors</p>
+<p>As we can see above, when converting from <code class="docutils literal notranslate"><span class="pre">float</span></code> to <code class="docutils literal notranslate"><span class="pre">int</span></code> the decimals are always rounded down, making 3.8 into 3.
+This will lead to rounding errors if numbers are converted incautiously.
+By normal math rules, 3.8 should be rounded up to 4.
+If you need correct rounding, you should use the <code class="docutils literal notranslate"><span class="pre">round()</span></code> function.</p>
+</div>
+</section>
+<section id="importing-libraries-and-modules">
+<h2>Importing libraries and modules<a class="headerlink" href="#importing-libraries-and-modules" title="Link to this heading">#</a></h2>
+<p>We have seen that Python has several built-in functions, for example <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">input()</span></code>.
+Python also has a <em>standard library</em> that we can use. A <em>library</em> is a collection of code that we can use as building blocks in our programs. We can often find and download libraries written by other people to use in our programs. The Python standard library comes with Python, so we don’t need to install it.</p>
+<p>The Python library is divided into <em>modules</em>. A module groups together related functions.
+We can use the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module to get the current date:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">writ_of_summons_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;In accordance with the Dispute Act Section 9-4(2)h), unless special</span>
+<span class="s1">circumstances necessitate it, the main hearing has to be set for a date</span>
+<span class="s1">less than six months after the date of submission of the writ of summons,</span>
+<span class="s1">which was submitted on&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">writ_of_summons_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In accordance with the Dispute Act Section 9-4(2)h), unless special
+circumstances necessitate it, the main hearing has to be set for a date
+less than six months after the date of submission of the writ of summons,
+which was submitted on 2022-08-09
+</pre></div>
+</div>
+</div>
+</div>
+<p>We might use the imported function repeatedly.
+To save typing, we can import <code class="docutils literal notranslate"><span class="pre">date</span></code> directly.
+We can also import multiple things:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-08-09
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parsing-dates">
+<h2>Parsing dates<a class="headerlink" href="#parsing-dates" title="Link to this heading">#</a></h2>
+<p>We can use the function <code class="docutils literal notranslate"><span class="pre">datetime.strptime(time,</span> <span class="pre">time_format)</span></code>
+to convert (parse) dates in string format into machine-readable format.
+First, we must import the datetime library:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dates can be written using different separators between the parts. The format below is used in <a class="reference external" href="https://echr-opendata.eu/">ECHR-OD</a>, which we will sometimes use as example data in this course. We will discuss ECHR-OD further in <a class="reference internal" href="JSON-APIs.html#json-apis"><span class="std std-ref">Appendix: JSON and Web APIs</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;30/11/2016 16:45:00&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we must specify the time format to use for parsing.
+This must match the format of the time in the string, which means that
+both the separators and the order of the fields must be the same.</p>
+<p>The time format is a bit cryptic, but it is documented in the <a class="reference external" href="https://docs.python.org/3/library/time.html#time.strftime">Python documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y %H:%M:%S&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we do the actual conversion/parsing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">time_format</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The variable time now contains the time in machine-readable format.
+We can use the separate components, such as the year:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2016
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or the day:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">.</span><span class="n">day</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-concatenation">
+<h2>String concatenation<a class="headerlink" href="#string-concatenation" title="Link to this heading">#</a></h2>
+<p>We saw above that we use the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator to add numbers. We can also use <code class="docutils literal notranslate"><span class="pre">+</span></code> with strings to glue them together. This is called string <em>concatenation</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;John&#39;</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s1">&#39;Doe&#39;</span>
+<span class="n">full_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="n">last_name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JohnDoe
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that the two strings are concatenated together without any space in-between.
+If we want a space, we must insert it ourselves:</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">last_name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>John Doe
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Extra: String multiplication</p>
+<p>We can also use multiplication with strings.
+This will repeat the string.
+This is kind of a curiosity, that you won’t often need in practice:</p>
+<div class="docutils">
+<p>print(‘See you in court, ‘ * 3)
+print(‘-’ * 60)</p>
+</div>
+<div class="docutils">
+<h2 class="rubric" id="see-you-in-court-see-you-in-court-see-you-in-court">See you in court, See you in court, See you in court,</h2>
+</div>
+</div>
+</section>
+<section id="f-strings">
+<h2>F-strings<a class="headerlink" href="#f-strings" title="Link to this heading">#</a></h2>
+<p>Concatenating just a couple of strings works well.
+But if we want to include multiple variables in a string, we will need many quotes and plus-signs (or commas), which can be easily misplaced.
+F-strings (formatted strings) are a simple way to include variables in a string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;Client name: </span><span class="si">{</span><span class="n">full_name</span><span class="si">}</span>
+<span class="s1">first name: </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s1">, last name: </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Client name: John Doe
+first name: John, last name: Doe
+</pre></div>
+</div>
+</div>
+</div>
+<p>For debugging, it can be useful to print the value of a variable along with its name.
+F-strings are a shortcut for this, notice the <code class="docutils literal notranslate"><span class="pre">=</span></code> at the end:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">full_name</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>full_name=&#39;John Doe&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">An Introduction to Programming for Lawyers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_decisions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Decisions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-as-a-calculator">Using Python as a Calculator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-to-the-screen-terminal">Printing to the Screen (Terminal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-are-independent">Variables are Independent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-and-expressions">Statements and Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commenting-code">Commenting Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions-and-methods">Calling Functions and Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-regular-functions">Calling Regular Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-function-calls">Nested Function Calls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-methods">Calling Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-input-from-the-user">Getting input from the user</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-strings-and-numbers">Converting between strings and numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-and-modules">Importing libraries and modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-dates">Parsing dates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-concatenation">String concatenation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">F-strings</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
