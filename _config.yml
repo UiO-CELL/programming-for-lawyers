@@ -19,6 +19,9 @@ execute:
     - '*02_decisions*'
     - '*supervised_learning*'
     - 'RAG*'
+    - 'assignment1.ipynb'
+    - 'assignment2.ipynb'
+    - 'assignment3.ipynb'
 
 #######################################################################################
 # HTML-specific settings
@@ -27,6 +30,8 @@ html:
   use_repository_button       : true
   use_issues_button           : true
   use_edit_page_button        : true
+  sidebar:
+    navigation_depth          : 1
 
 #######################################################################################
 # Launch button settings

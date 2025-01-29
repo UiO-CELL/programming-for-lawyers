@@ -17,3 +17,14 @@ chapters:
 - file: docs/unsupervised_learning
 - file: docs/JSON-APIs
 - file: docs/standalone-programs
+- file: docs/student-appendixes/tobias-rade-evensen/tobias_rade_evensen.md
+  sections:
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment1_assignment.md
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment1.ipynb
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment1_feedback.md
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment2_assignment.md
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment2.ipynb
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment2_feedback.md
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment3_assignment.md
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment3.ipynb
+  - file: docs/student-appendixes/tobias-rade-evensen/assignment3_feedback.md
