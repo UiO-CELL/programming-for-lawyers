@@ -45,4 +45,4 @@ launch_buttons:
 latex:
   latex_engine                : "pdflatex"
   latex_documents:
-    targetname: book.tex
+    targetname: programming-for-lawyers.tex
