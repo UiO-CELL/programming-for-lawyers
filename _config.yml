@@ -42,7 +42,7 @@ launch_buttons:
   jupyterhub_url              : "https://jupyterhub.uio.no"
   colab_url                   : "https://colab.research.google.com"
 
-# latex:
-#   latex_engine                : "xelatex"
-#   latex_documents:
-#     targetname: book.tex
+latex:
+  latex_engine                : "pdflatex"
+  latex_documents:
+    targetname: book.tex
