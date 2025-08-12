@@ -11,6 +11,7 @@ chapters:
 - file: docs/05_files_exceptions
 - file: docs/tabular_data
 - file: docs/sorting_filtering
+- file: docs/information_extraction
 - file: docs/machine_learning
 - file: docs/supervised_learning
 - file: docs/RAG
