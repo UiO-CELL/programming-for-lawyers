@@ -3,3 +3,4 @@ pandas
 matplotlib
 jupyter-book
 scikit-learn
+spacy
