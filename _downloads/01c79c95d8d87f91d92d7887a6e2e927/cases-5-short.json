@@ -1,0 +1,263 @@
+[
+    {
+        "article": [
+            "3",
+            "6"
+        ],
+        "country": {
+            "alpha2": "ru",
+            "name": "Russian Federation"
+        },
+        "decision_body": [
+            {
+                "name": "Helena J\u00e4derblom",
+                "role": "president"
+            },
+            {
+                "name": "Branko Lubarda",
+                "role": "judges"
+            },
+            {
+                "name": "Helen Keller",
+                "role": "judges"
+            },
+            {
+                "name": "Dmitry Dedov",
+                "role": "judges"
+            },
+            {
+                "name": "Pere Pastor Vilanova",
+                "role": "judges"
+            },
+            {
+                "name": "Georgios A. Serghides",
+                "role": "judges"
+            },
+            {
+                "name": "Jolien Schukking",
+                "role": "judges"
+            },
+            {
+                "name": "Stephen Phillips",
+                "role": "section registrar"
+            }
+        ],
+        "decisiondate": "",
+        "docname": "CASE OF SKLYAR v. RUSSIA",
+        "doctypebranch": "CHAMBER",
+        "importance": "4",
+        "judgementdate": "18/07/2017 00:00:00",
+        "parties": [
+            "SKLYAR",
+            "RUSSIA"
+        ]
+    },
+    {
+        "article": [
+            "p1-3"
+        ],
+        "country": {
+            "alpha2": "ru",
+            "name": "Russian Federation"
+        },
+        "decision_body": [
+            {
+                "name": "Luis L\u00f3pez Guerra",
+                "role": "president"
+            },
+            {
+                "name": "Helena J\u00e4derblom",
+                "role": "judges"
+            },
+            {
+                "name": "Helen Keller",
+                "role": "judges"
+            },
+            {
+                "name": "Dmitry Dedov",
+                "role": "judges"
+            },
+            {
+                "name": "Branko Lubarda",
+                "role": "judges"
+            },
+            {
+                "name": "Pere Pastor Vilanova",
+                "role": "judges"
+            },
+            {
+                "name": "Georgios A. Serghides",
+                "role": "judges"
+            },
+            {
+                "name": "Stephen Phillips",
+                "role": "section registrar"
+            }
+        ],
+        "decisiondate": "",
+        "docname": "CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA",
+        "doctypebranch": "CHAMBER",
+        "importance": "4",
+        "judgementdate": "08/11/2016 00:00:00",
+        "parties": [
+            "YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS",
+            "RUSSIA"
+        ]
+    },
+    {
+        "article": [
+            "6"
+        ],
+        "country": {
+            "alpha2": "si",
+            "name": "Slovenia"
+        },
+        "decision_body": [
+            {
+                "name": "MrJ. Hedigan",
+                "role": "president"
+            },
+            {
+                "name": "MrB.M. Zupan\u010di\u010d",
+                "role": "judges"
+            },
+            {
+                "name": "MrC. B\u00eersan",
+                "role": "judges"
+            },
+            {
+                "name": "MrV. Zagrebelsky",
+                "role": "judges"
+            },
+            {
+                "name": "MrsA. Gyulumyan",
+                "role": "judges"
+            },
+            {
+                "name": "MrDavid Th\u00f3r Bj\u00f6rgvinsson",
+                "role": "judges"
+            },
+            {
+                "name": "MrsI. Ziemele",
+                "role": "judges"
+            },
+            {
+                "name": "Mr V. Berger",
+                "role": "section registrar"
+            }
+        ],
+        "decisiondate": "",
+        "docname": "CASE OF OBERWALDER v. SLOVENIA",
+        "doctypebranch": "CHAMBER",
+        "importance": "4",
+        "judgementdate": "18/01/2007 00:00:00",
+        "parties": [
+            "OBERWALDER",
+            "SLOVENIA"
+        ]
+    },
+    {
+        "article": [
+            "5"
+        ],
+        "country": {
+            "alpha2": "ru",
+            "name": "Russian Federation"
+        },
+        "decision_body": [
+            {
+                "name": "Nina Vaji\u0107",
+                "role": "president"
+            },
+            {
+                "name": "Anatoly Kovler",
+                "role": "judges"
+            },
+            {
+                "name": "Khanlar Hajiyev",
+                "role": "judges"
+            },
+            {
+                "name": "Mirjana Lazarova Trajkovska",
+                "role": "judges"
+            },
+            {
+                "name": "Julia Laffranque",
+                "role": "judges"
+            },
+            {
+                "name": "Linos-Alexandre Sicilianos",
+                "role": "judges"
+            },
+            {
+                "name": "Erik M\u00f8se",
+                "role": "judges"
+            },
+            {
+                "name": "S\u00f8ren Nielsen",
+                "role": "section registrar"
+            }
+        ],
+        "decisiondate": "",
+        "docname": "CASE OF RAKHMONOV v. RUSSIA",
+        "doctypebranch": "CHAMBER",
+        "importance": "4",
+        "judgementdate": "16/10/2012 00:00:00",
+        "parties": [
+            "RAKHMONOV",
+            "RUSSIA"
+        ]
+    },
+    {
+        "article": [
+            "6",
+            "p1-1"
+        ],
+        "country": {
+            "alpha2": "tr",
+            "name": "Turkey"
+        },
+        "decision_body": [
+            {
+                "name": "Fran\u00e7oise Tulkens",
+                "role": "president"
+            },
+            {
+                "name": "Ireneu Cabral Barreto",
+                "role": "judges"
+            },
+            {
+                "name": "Vladimiro Zagrebelsky",
+                "role": "judges"
+            },
+            {
+                "name": "Danut\u0117 Jo\u010dien\u0117",
+                "role": "judges"
+            },
+            {
+                "name": "Andr\u00e1s Saj\u00f3",
+                "role": "judges"
+            },
+            {
+                "name": "Nona Tsotsoria",
+                "role": "judges"
+            },
+            {
+                "name": "I\u015f\u0131l Karaka\u015f",
+                "role": "judges"
+            },
+            {
+                "name": "Sally Doll\u00e9",
+                "role": "section registrar"
+            }
+        ],
+        "decisiondate": "",
+        "docname": "CASE OF ARAT AND OTHERSv. TURKEY",
+        "doctypebranch": "CHAMBER",
+        "importance": "4",
+        "judgementdate": "13/01/2009 00:00:00",
+        "parties": [
+            "ARAT AND OTHERSv. TURKEY"
+        ]
+    }
+]

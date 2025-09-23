@@ -1,0 +1,3380 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tabular Data &#8212; Programming for Lawyers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/tabular_data';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sorting, Filtering Data and Search" href="sorting_filtering.html" />
+    <link rel="prev" title="Files and Exceptions" href="05_files_exceptions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Programming for Lawyers - Home"/>
+    <script>document.write(`<img src="../_static/uio_logo_small.svg" class="logo__image only-dark" alt="Programming for Lawyers - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">Programming basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_files_exceptions.html">Files and Exceptions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sorting_filtering.html">Sorting, Filtering Data and Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="information_extraction.html">Information Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supervised_learning.html">Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAG.html">Retrieval-Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">Appendix: Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JSON-APIs.html">Appendix: JSON and Web APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone-programs.html">Appendix: Standalone Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/UiO-CELL/programming-for-lawyers&urlpath=tree/programming-for-lawyers/docs/tabular_data.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/UiO-CELL/programming-for-lawyers/blob/master/docs/tabular_data.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/edit/master/docs/tabular_data.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/issues/new?title=Issue%20on%20page%20%2Fdocs/tabular_data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/tabular_data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tabular Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files">Reading CSV Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-data">Examining Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-index-column">Specifying Index Column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-row">Getting a Row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-a-column">Listing a Column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numeric-indexes">Using Numeric Indexes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-single-cell">Getting a Single Cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-multiple-columns">Getting Multiple Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-multiple-columns">Matching Multiple Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-in-locators">Relational Operators in Locators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-text">Finding Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-conditions">Combining Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isin-method">The isin() Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-by-year">Selecting by Year</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-data">Aggregating Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-data">Visualizing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sums">Sums</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-axis">Choosing Axis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tabular-data">
+<h1>Tabular Data<a class="headerlink" href="#tabular-data" title="Link to this heading">#</a></h1>
+<p>Tabular data are data in a table format, such as an Excel spreadsheet.
+We often need to work with tabular data.
+<em>Pandas</em> is a powerful Python library for working with tabular data.</p>
+<p>In this part, we will work with real-world data from the European Court of Human Rights <a class="reference external" href="https://echr-opendata.eu/">OpenData project</a> (ECHR-OD).
+ECHR-OD has data sets with cases from the European Court of Human Rights in different formats.
+Here, we will work with data from the tabular data file <code class="docutils literal notranslate"><span class="pre">echr_2_0_0_structured_cases.csv</span></code>, which is in <em>CSV</em> format.
+CSV is an abbreviation for “comma separated values”.</p>
+<p>You can get the
+<a class="reference external" href="https://www.uio.no/studier/emner/jus/jus/JUS5080/h22/datasets/cases-100.csv">smaller subset</a>
+from the semester page or the
+<a class="reference external" href="https://echr-opendata.eu/download/2.0.0/structured/cases/csv">full data set</a> from ECHR-OD.</p>
+<section id="pandas">
+<h2>pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<p>We must first import the pandas library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By convention, pandas is usually imported as <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+</div>
+<p>Alternatively, we can import the functions we want to use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">read_csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas has two different data types: <code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+</section>
+<section id="dataframe">
+<h2>DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h2>
+<p>A pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a table.
+Tables are made up of rows and columns of data, we say they are two-dimensional.
+A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> can store numbers and strings as well as other types of data, for example dates.
+We can make a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> like this table with made-up data about some fictitious cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+                  <span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>By default, the rows are numbered.
+We can add an index to give the rows names instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Smith v. Jones&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Doe v. Doe&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Jones v. Doe&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Smith v. Jones</th>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Doe v. Doe</th>
+      <td>5</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Jones v. Doe</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can also give names to the columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time_allotted&#39;</span><span class="p">,</span> <span class="s1">&#39;time_used&#39;</span><span class="p">,</span> <span class="s1">&#39;witnesses&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time_allotted</th>
+      <th>time_used</th>
+      <th>witnesses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Smith v. Jones</th>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Doe v. Doe</th>
+      <td>5</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Jones v. Doe</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="reading-csv-files">
+<h2>Reading CSV Files<a class="headerlink" href="#reading-csv-files" title="Link to this heading">#</a></h2>
+<p>Pandas has functions for importing data in many different formats.
+Here, we will use CSV files.
+To read the data set, we use pandas <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cases-100.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="examining-data">
+<h2>Examining Data<a class="headerlink" href="#examining-data" title="Link to this heading">#</a></h2>
+<p>Now, we can examine the data set.
+Pandas has a method <code class="docutils literal notranslate"><span class="pre">head()</span></code> which prints the first five rows of the table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">cases</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>docname</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>MS WORD</td>
+      <td>45498/11</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CASE OF SKLYAR v. RUSSIA</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2017:0718JUD004549811</td>
+      <td>4</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>MS WORD</td>
+      <td>18860/07</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PART...</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2016:1108JUD001886007</td>
+      <td>4</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>MS WORD</td>
+      <td>75567/01</td>
+      <td>si</td>
+      <td>Slovenia</td>
+      <td>NaN</td>
+      <td>CASE OF OBERWALDER v. SLOVENIA</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2007:0118JUD007556701</td>
+      <td>4</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>MS WORD</td>
+      <td>50031/11</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CASE OF RAKHMONOV v. RUSSIA</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2012:1016JUD005003111</td>
+      <td>4</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>MS WORD</td>
+      <td>42894/04</td>
+      <td>tr</td>
+      <td>Turkey</td>
+      <td>NaN</td>
+      <td>CASE OF ARAT AND OTHERSv. TURKEY</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2009:0113JUD004289404</td>
+      <td>4</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 374 columns</p>
+</div></div></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Display Function</p>
+<p>We can use the Jupyter Notebook function <code class="docutils literal notranslate"><span class="pre">display()</span></code> to show a nicer format than with <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+</div>
+<p>This is a large table with 374 columns. Therefore, pandas shows only the first and last columns.
+We can look at the column names.</p>
+<p>There are several interesting columns.
+We will look at the conclusion columns in the section <a class="reference internal" href="#relational-operators"><span class="std std-ref">Relational Operators</span></a>.
+Here are just a few examples:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Column</p></th>
+<th class="head text-left"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">docname</span></code></p></td>
+<td class="text-left"><p>The name of the case.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">country.name</span></code></p></td>
+<td class="text-left"><p>The name of the country involved in the case.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">article=*</span></code></p></td>
+<td class="text-left"><p>Gives the relevant articles for each case. For example, the column <code class="docutils literal notranslate"><span class="pre">article=3</span></code> states whether Article 3 is mentioned. The value is 1 for <code class="docutils literal notranslate"><span class="pre">True</span></code> or 0 for <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ccl_article=*</span></code></p></td>
+<td class="text-left"><p>Conclusion for each article. For article 3, the conclusion is in the column <code class="docutils literal notranslate"><span class="pre">ccl_article=3</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can list all the column names like this:</p>
+<div class="cell tag_output_scroll tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">cases</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Unnamed: 0&#39;,
+ &#39;application&#39;,
+ &#39;appno&#39;,
+ &#39;country.alpha2&#39;,
+ &#39;country.name&#39;,
+ &#39;decisiondate&#39;,
+ &#39;docname&#39;,
+ &#39;doctypebranch&#39;,
+ &#39;ecli&#39;,
+ &#39;importance&#39;,
+ &#39;introductiondate&#39;,
+ &#39;issue.0&#39;,
+ &#39;issue.1&#39;,
+ &#39;issue.10&#39;,
+ &#39;issue.11&#39;,
+ &#39;issue.12&#39;,
+ &#39;issue.13&#39;,
+ &#39;issue.14&#39;,
+ &#39;issue.15&#39;,
+ &#39;issue.16&#39;,
+ &#39;issue.17&#39;,
+ &#39;issue.18&#39;,
+ &#39;issue.19&#39;,
+ &#39;issue.2&#39;,
+ &#39;issue.20&#39;,
+ &#39;issue.21&#39;,
+ &#39;issue.22&#39;,
+ &#39;issue.23&#39;,
+ &#39;issue.24&#39;,
+ &#39;issue.25&#39;,
+ &#39;issue.26&#39;,
+ &#39;issue.3&#39;,
+ &#39;issue.4&#39;,
+ &#39;issue.5&#39;,
+ &#39;issue.6&#39;,
+ &#39;issue.7&#39;,
+ &#39;issue.8&#39;,
+ &#39;issue.9&#39;,
+ &#39;itemid&#39;,
+ &#39;judgementdate&#39;,
+ &#39;kpdate&#39;,
+ &#39;languageisocode&#39;,
+ &#39;originatingbody&#39;,
+ &#39;originatingbody_name&#39;,
+ &#39;originatingbody_type&#39;,
+ &#39;parties.0&#39;,
+ &#39;parties.1&#39;,
+ &#39;parties.2&#39;,
+ &#39;rank&#39;,
+ &#39;respondent.0&#39;,
+ &#39;respondent.1&#39;,
+ &#39;respondent.2&#39;,
+ &#39;respondent.3&#39;,
+ &#39;respondent.4&#39;,
+ &#39;respondentOrderEng&#39;,
+ &#39;separateopinion&#39;,
+ &#39;sharepointid&#39;,
+ &#39;typedescription&#39;,
+ &#39;article=3&#39;,
+ &#39;article=6&#39;,
+ &#39;article=p1-3&#39;,
+ &#39;article=5&#39;,
+ &#39;article=p1-1&#39;,
+ &#39;article=13&#39;,
+ &#39;article=8&#39;,
+ &#39;article=10&#39;,
+ &#39;article=2&#39;,
+ &#39;article=35&#39;,
+ &#39;article=34&#39;,
+ &#39;article=38&#39;,
+ &#39;article=41&#39;,
+ &#39;article=p4-2&#39;,
+ &#39;article=29&#39;,
+ &#39;article=4&#39;,
+ &#39;article=14&#39;,
+ &#39;article=p12-1&#39;,
+ &#39;article=9&#39;,
+ &#39;article=11&#39;,
+ &#39;article=1&#39;,
+ &#39;article=46&#39;,
+ &#39;article=17&#39;,
+ &#39;article=18&#39;,
+ &#39;article=7&#39;,
+ &#39;article=&#39;,
+ &#39;article=37&#39;,
+ &#39;article=p7-4&#39;,
+ &#39;article=57&#39;,
+ &#39;article=26&#39;,
+ &#39;article=27&#39;,
+ &#39;article=36&#39;,
+ &#39;article=p7-2&#39;,
+ &#39;article=30&#39;,
+ &#39;article=12&#39;,
+ &#39;article=p7-1&#39;,
+ &#39;article=p1-2&#39;,
+ &#39;article=56&#39;,
+ &#39;article=p1-4&#39;,
+ &#39;article=15&#39;,
+ &#39;article=39&#39;,
+ &#39;article=p4-4&#39;,
+ &#39;article=25&#39;,
+ &#39;article=p6-1&#39;,
+ &#39;article=p7-5&#39;,
+ &#39;article=19&#39;,
+ &#39;article=32&#39;,
+ &#39;article=p7-3&#39;,
+ &#39;article=33&#39;,
+ &#39;article=53&#39;,
+ &#39;article=28&#39;,
+ &#39;article=43&#39;,
+ &#39;article=p4-3&#39;,
+ &#39;article=52&#39;,
+ &#39;article=p13-1&#39;,
+ &#39;article=16&#39;,
+ &#39;article=p6-2&#39;,
+ &#39;documentcollectionid=CASELAW&#39;,
+ &#39;documentcollectionid=JUDGMENTS&#39;,
+ &#39;documentcollectionid=CHAMBER&#39;,
+ &#39;documentcollectionid=ENG&#39;,
+ &#39;documentcollectionid=COMMITTEE&#39;,
+ &#39;documentcollectionid=GRANDCHAMBER&#39;,
+ &#39;applicability=&#39;,
+ &#39;applicability=36&#39;,
+ &#39;applicability=43&#39;,
+ &#39;applicability=41&#39;,
+ &#39;applicability=55&#39;,
+ &#39;applicability=3&#39;,
+ &#39;applicability=22&#39;,
+ &#39;applicability=60&#39;,
+ &#39;applicability=58&#39;,
+ &#39;applicability=25&#39;,
+ &#39;applicability=47&#39;,
+ &#39;applicability=12&#39;,
+ &#39;applicability=38&#39;,
+ &#39;applicability=20&#39;,
+ &#39;applicability=18&#39;,
+ &#39;applicability=24&#39;,
+ &#39;applicability=62&#39;,
+ &#39;applicability=21&#39;,
+ &#39;applicability=23&#39;,
+ &#39;applicability=8&#39;,
+ &#39;applicability=26&#39;,
+ &#39;applicability=53&#39;,
+ &#39;applicability=15&#39;,
+ &#39;applicability=48&#39;,
+ &#39;applicability=14&#39;,
+ &#39;applicability=51&#39;,
+ &#39;applicability=13&#39;,
+ &#39;applicability=5&#39;,
+ &#39;applicability=7&#39;,
+ &#39;applicability=50&#39;,
+ &#39;applicability=52&#39;,
+ &#39;applicability=28&#39;,
+ &#39;applicability=29&#39;,
+ &#39;applicability=31&#39;,
+ &#39;applicability=6&#39;,
+ &#39;applicability=81&#39;,
+ &#39;applicability=66&#39;,
+ &#39;applicability=49&#39;,
+ &#39;applicability=33&#39;,
+ &#39;applicability=63&#39;,
+ &#39;applicability=68&#39;,
+ &#39;applicability=46&#39;,
+ &#39;applicability=19&#39;,
+ &#39;applicability=40&#39;,
+ &#39;applicability=17&#39;,
+ &#39;applicability=32&#39;,
+ &#39;applicability=72&#39;,
+ &#39;applicability=34&#39;,
+ &#39;applicability=35&#39;,
+ &#39;applicability=54&#39;,
+ &#39;applicability=27&#39;,
+ &#39;applicability=16&#39;,
+ &#39;applicability=64&#39;,
+ &#39;applicability=57&#39;,
+ &#39;applicability=56&#39;,
+ &#39;applicability=2&#39;,
+ &#39;applicability=4&#39;,
+ &#39;applicability=67&#39;,
+ &#39;applicability=77&#39;,
+ &#39;applicability=71&#39;,
+ &#39;applicability=59&#39;,
+ &#39;paragraphs=6-3-c&#39;,
+ &#39;paragraphs=3&#39;,
+ &#39;paragraphs=6&#39;,
+ &#39;paragraphs=6-1&#39;,
+ &#39;paragraphs=P1-3&#39;,
+ &#39;paragraphs=5-1&#39;,
+ &#39;paragraphs=5&#39;,
+ &#39;paragraphs=P1-1&#39;,
+ &#39;paragraphs=8-1&#39;,
+ &#39;paragraphs=13&#39;,
+ &#39;paragraphs=8&#39;,
+ &#39;paragraphs=10-1&#39;,
+ &#39;paragraphs=10-2&#39;,
+ &#39;paragraphs=10&#39;,
+ &#39;paragraphs=2&#39;,
+ &#39;paragraphs=35&#39;,
+ &#39;paragraphs=34&#39;,
+ &#39;paragraphs=35-1&#39;,
+ &#39;paragraphs=38&#39;,
+ &#39;paragraphs=41&#39;,
+ &#39;paragraphs=2-1&#39;,
+ &#39;paragraphs=P4-2-1&#39;,
+ &#39;paragraphs=35-3-a&#39;,
+ &#39;paragraphs=P4-2&#39;,
+ &#39;paragraphs=8-2&#39;,
+ &#39;paragraphs=29-3&#39;,
+ &#39;paragraphs=29&#39;,
+ &#39;paragraphs=4&#39;,
+ &#39;paragraphs=P1-1-1&#39;,
+ &#39;paragraphs=5-1-e&#39;,
+ &#39;paragraphs=5-1-c&#39;,
+ &#39;paragraphs=6-2&#39;,
+ &#39;paragraphs=14&#39;,
+ &#39;paragraphs=35-3&#39;,
+ &#39;paragraphs=6-3-d&#39;,
+ &#39;paragraphs=5-5&#39;,
+ &#39;paragraphs=5-1-b&#39;,
+ &#39;paragraphs=P12-1&#39;,
+ &#39;paragraphs=11-2&#39;,
+ &#39;paragraphs=9&#39;,
+ &#39;paragraphs=11&#39;,
+ &#39;paragraphs=11-1&#39;,
+ &#39;paragraphs=1&#39;,
+ &#39;paragraphs=9-1&#39;,
+ &#39;paragraphs=6-3&#39;,
+ &#39;paragraphs=5-3&#39;,
+ &#39;paragraphs=5-4&#39;,
+ &#39;paragraphs=46&#39;,
+ &#39;paragraphs=5-1-a&#39;,
+ &#39;paragraphs=46-2&#39;,
+ &#39;paragraphs=P4-2-2&#39;,
+ &#39;paragraphs=17&#39;,
+ &#39;paragraphs=18&#39;,
+ &#39;paragraphs=7&#39;,
+ &#39;paragraphs=7-1&#39;,
+ &#39;paragraphs=&#39;,
+ &#39;paragraphs=4-3-d&#39;,
+ &#39;paragraphs=4-2&#39;,
+ &#39;paragraphs=6-3-e&#39;,
+ &#39;paragraphs=9-2&#39;,
+ &#39;paragraphs=P1-1-2&#39;,
+ &#39;paragraphs=37-1-c&#39;,
+ &#39;paragraphs=37&#39;,
+ &#39;paragraphs=P7-4&#39;,
+ &#39;paragraphs=4-1&#39;,
+ &#39;paragraphs=57&#39;,
+ &#39;paragraphs=6-3-b&#39;,
+ &#39;paragraphs=35-3-b&#39;,
+ &#39;paragraphs=5-1-f&#39;,
+ &#39;paragraphs=35-4&#39;,
+ &#39;paragraphs=P4-2-3&#39;,
+ &#39;paragraphs=2-2&#39;,
+ &#39;paragraphs=26&#39;,
+ &#39;paragraphs=27&#39;,
+ &#39;paragraphs=27-2&#39;,
+ &#39;paragraphs=36-1&#39;,
+ &#39;paragraphs=36&#39;,
+ &#39;paragraphs=37-1&#39;,
+ &#39;paragraphs=P7-2&#39;,
+ &#39;paragraphs=35-2&#39;,
+ &#39;paragraphs=5-1-d&#39;,
+ &#39;paragraphs=6-3-a&#39;,
+ &#39;paragraphs=30&#39;,
+ &#39;paragraphs=46-1&#39;,
+ &#39;paragraphs=12&#39;,
+ &#39;paragraphs=P7-1&#39;,
+ &#39;paragraphs=P7-1-1&#39;,
+ &#39;paragraphs=36-2&#39;,
+ &#39;paragraphs=5-2&#39;,
+ &#39;paragraphs=P1-2&#39;,
+ &#39;paragraphs=56-3&#39;,
+ &#39;paragraphs=56&#39;,
+ &#39;paragraphs=P1-4&#39;,
+ &#39;paragraphs=56-1&#39;,
+ &#39;paragraphs=P7-1-2&#39;,
+ &#39;paragraphs=38-1-a&#39;,
+ &#39;paragraphs=37-1-b&#39;,
+ &#39;paragraphs=15-1&#39;,
+ &#39;paragraphs=15&#39;,
+ &#39;paragraphs=39&#39;,
+ &#39;paragraphs=7-2&#39;,
+ &#39;paragraphs=P4-4&#39;,
+ &#39;paragraphs=15-3&#39;,
+ &#39;paragraphs=25&#39;,
+ &#39;paragraphs=25-1&#39;,
+ &#39;paragraphs=37-1-a&#39;,
+ &#39;paragraphs=P6-1&#39;,
+ &#39;paragraphs=P7-5&#39;,
+ &#39;paragraphs=19&#39;,
+ &#39;paragraphs=32&#39;,
+ &#39;paragraphs=P7-3&#39;,
+ &#39;paragraphs=33&#39;,
+ &#39;paragraphs=53&#39;,
+ &#39;paragraphs=28-1-a&#39;,
+ &#39;paragraphs=28&#39;,
+ &#39;paragraphs=35-2-b&#39;,
+ &#39;paragraphs=43&#39;,
+ &#39;paragraphs=4-3-b&#39;,
+ &#39;paragraphs=4-3&#39;,
+ &#39;paragraphs=4-3-a&#39;,
+ &#39;paragraphs=P4-3&#39;,
+ &#39;paragraphs=28-3&#39;,
+ &#39;paragraphs=52&#39;,
+ &#39;paragraphs=P13-1&#39;,
+ &#39;paragraphs=P7-4-1&#39;,
+ &#39;paragraphs=16&#39;,
+ &#39;paragraphs=27-1-b&#39;,
+ &#39;paragraphs=29-1&#39;,
+ &#39;paragraphs=32-2&#39;,
+ &#39;paragraphs=28-1&#39;,
+ &#39;paragraphs=P6-2&#39;,
+ &#39;paragraphs=46-4&#39;,
+ &#39;ccl_article=.5-5&#39;,
+ &#39;ccl_article=10&#39;,
+ &#39;ccl_article=10-1&#39;,
+ &#39;ccl_article=11&#39;,
+ &#39;ccl_article=11-1&#39;,
+ &#39;ccl_article=12&#39;,
+ &#39;ccl_article=13&#39;,
+ &#39;ccl_article=14&#39;,
+ &#39;ccl_article=17&#39;,
+ &#39;ccl_article=18&#39;,
+ &#39;ccl_article=2&#39;,
+ &#39;ccl_article=2-1&#39;,
+ &#39;ccl_article=25&#39;,
+ &#39;ccl_article=25-1&#39;,
+ &#39;ccl_article=3&#39;,
+ &#39;ccl_article=34&#39;,
+ &#39;ccl_article=38&#39;,
+ &#39;ccl_article=4&#39;,
+ &#39;ccl_article=4-3-d&#39;,
+ &#39;ccl_article=46&#39;,
+ &#39;ccl_article=5&#39;,
+ &#39;ccl_article=5-1&#39;,
+ &#39;ccl_article=5-1-a&#39;,
+ &#39;ccl_article=5-1-b&#39;,
+ &#39;ccl_article=5-1-c&#39;,
+ &#39;ccl_article=5-1-e&#39;,
+ &#39;ccl_article=5-1-f&#39;,
+ &#39;ccl_article=5-2&#39;,
+ &#39;ccl_article=5-3&#39;,
+ &#39;ccl_article=5-4&#39;,
+ &#39;ccl_article=5-5&#39;,
+ &#39;ccl_article=6&#39;,
+ &#39;ccl_article=6-1&#39;,
+ &#39;ccl_article=6-2&#39;,
+ &#39;ccl_article=6-3&#39;,
+ &#39;ccl_article=6-3-a&#39;,
+ &#39;ccl_article=6-3-b&#39;,
+ &#39;ccl_article=6-3-c&#39;,
+ &#39;ccl_article=6-3-d&#39;,
+ &#39;ccl_article=6-3-e&#39;,
+ &#39;ccl_article=7&#39;,
+ &#39;ccl_article=7-1&#39;,
+ &#39;ccl_article=8&#39;,
+ &#39;ccl_article=8-1&#39;,
+ &#39;ccl_article=9&#39;,
+ &#39;ccl_article=9-1&#39;,
+ &#39;ccl_article=p1-1&#39;,
+ &#39;ccl_article=p1-1-1&#39;,
+ &#39;ccl_article=p1-1-2&#39;,
+ &#39;ccl_article=p1-2&#39;,
+ &#39;ccl_article=p1-3&#39;,
+ &#39;ccl_article=p12-1&#39;,
+ &#39;ccl_article=p4-2&#39;,
+ &#39;ccl_article=p4-2-1&#39;,
+ &#39;ccl_article=p4-4&#39;,
+ &#39;ccl_article=p6-1&#39;,
+ &#39;ccl_article=p7-1&#39;,
+ &#39;ccl_article=p7-2&#39;,
+ &#39;ccl_article=p7-3&#39;,
+ &#39;ccl_article=p7-4&#39;]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="specifying-index-column">
+<h2>Specifying Index Column<a class="headerlink" href="#specifying-index-column" title="Link to this heading">#</a></h2>
+<p>When reading the CSV file, we can specify which column to use as index.
+For the ECHR-OD data it makes sense to use <code class="docutils literal notranslate"><span class="pre">docname</span></code> as index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cases-100.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;docname&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">cases</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF SKLYAR v. RUSSIA</th>
+      <td>0</td>
+      <td>MS WORD</td>
+      <td>45498/11</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2017:0718JUD004549811</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA</th>
+      <td>1</td>
+      <td>MS WORD</td>
+      <td>18860/07</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2016:1108JUD001886007</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF OBERWALDER v. SLOVENIA</th>
+      <td>2</td>
+      <td>MS WORD</td>
+      <td>75567/01</td>
+      <td>si</td>
+      <td>Slovenia</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2007:0118JUD007556701</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF RAKHMONOV v. RUSSIA</th>
+      <td>3</td>
+      <td>MS WORD</td>
+      <td>50031/11</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2012:1016JUD005003111</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF ARAT AND OTHERSv. TURKEY</th>
+      <td>4</td>
+      <td>MS WORD</td>
+      <td>42894/04</td>
+      <td>tr</td>
+      <td>Turkey</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2009:0113JUD004289404</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 373 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="getting-a-row">
+<h2>Getting a Row<a class="headerlink" href="#getting-a-row" title="Link to this heading">#</a></h2>
+<p>We can use the <em>locator</em> <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> to select parts of the table.
+First, we select a row using the index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;CASE OF SKLYAR v. RUSSIA&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unnamed: 0                           0
+application                    MS WORD
+appno                         45498/11
+country.alpha2                      ru
+country.name        Russian Federation
+                           ...        
+ccl_article=p6-1                     0
+ccl_article=p7-1                     0
+ccl_article=p7-2                     0
+ccl_article=p7-3                     0
+ccl_article=p7-4                     0
+Name: CASE OF SKLYAR v. RUSSIA, Length: 373, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pandas only shows the first and last five columns.
+To show all the data, we can convert them to a <code class="docutils literal notranslate"><span class="pre">list()</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">selection</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[np.int64(0), &#39;MS WORD&#39;, &#39;45498/11&#39;, &#39;ru&#39;, &#39;Russian Federation&#39;, nan, &#39;CHAMBER&#39;, &#39;ECLI:CE:ECHR:2017:0718JUD004549811&#39;, np.int64(4), nan, nan, nan, np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), nan, np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), nan, nan, np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), np.float64(nan), &#39;001-175680&#39;, &#39;18/07/2017&#39;, &#39;18/07/2017&#39;, &#39;ENG&#39;, np.int64(6), &#39;Third Section&#39;, &#39;Court&#39;, &#39;SKLYAR&#39;, &#39;RUSSIA&#39;, np.float64(nan), np.float64(1949.88940429688), &#39;RUS&#39;, nan, np.float64(nan), np.float64(nan), np.float64(nan), np.int64(38), np.False_, np.int64(466267), np.int64(15), np.int64(1), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(0), np.int64(0), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(-1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="listing-a-column">
+<h2>Listing a Column<a class="headerlink" href="#listing-a-column" title="Link to this heading">#</a></h2>
+<p>We can use the subscript operator to get a column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="p">[</span><span class="s1">&#39;country.name&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>docname
+CASE OF SKLYAR v. RUSSIA                                                Russian Federation
+CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA    Russian Federation
+CASE OF OBERWALDER v. SLOVENIA                                                    Slovenia
+CASE OF RAKHMONOV v. RUSSIA                                             Russian Federation
+CASE OF ARAT AND OTHERSv. TURKEY                                                    Turkey
+                                                                               ...        
+CASE OF ARTUR PAWLAK v. POLAND                                                      Poland
+CASE OF PROKHOROV v. UKRAINE                                                       Ukraine
+CASE OF ALAJOS KISS v. HUNGARY                                                     Hungary
+CASE OF PSHEVECHERSKIY v. RUSSIA                                        Russian Federation
+CASE OF TULESHOV AND OTHERS v. RUSSIA                                   Russian Federation
+Name: country.name, Length: 100, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use the locator <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for this, then we need to supply two indexes.
+If we want to get the entire <code class="docutils literal notranslate"><span class="pre">country.name</span></code> column, we leave out the indexes and just use a colon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;country.name&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>docname
+CASE OF SKLYAR v. RUSSIA                                                Russian Federation
+CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA    Russian Federation
+CASE OF OBERWALDER v. SLOVENIA                                                    Slovenia
+CASE OF RAKHMONOV v. RUSSIA                                             Russian Federation
+CASE OF ARAT AND OTHERSv. TURKEY                                                    Turkey
+                                                                               ...        
+CASE OF ARTUR PAWLAK v. POLAND                                                      Poland
+CASE OF PROKHOROV v. UKRAINE                                                       Ukraine
+CASE OF ALAJOS KISS v. HUNGARY                                                     Hungary
+CASE OF PSHEVECHERSKIY v. RUSSIA                                        Russian Federation
+CASE OF TULESHOV AND OTHERS v. RUSSIA                                   Russian Federation
+Name: country.name, Length: 100, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have seen the colon before with lists.
+With lists we can also leave out one or both of the indexes.
+Without any indexes, we get a copy of the entire list:
+<code class="docutils literal notranslate"><span class="pre">list_copy</span> <span class="pre">=</span> <span class="pre">old_list[:]</span></code></p>
+</div>
+</section>
+<section id="using-numeric-indexes">
+<h2>Using Numeric Indexes<a class="headerlink" href="#using-numeric-indexes" title="Link to this heading">#</a></h2>
+<p>Since we opened the table with the argument <code class="docutils literal notranslate"><span class="pre">index_col='docname'</span></code>, it has string indexes like <em>‘CASE OF SKLYAR v. RUSSIA’</em>. But we can also use numeric indexes with the <em>integer locator</em> <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>.
+Here we get the first five rows using a range of indexes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF SKLYAR v. RUSSIA</th>
+      <td>0</td>
+      <td>MS WORD</td>
+      <td>45498/11</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2017:0718JUD004549811</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA</th>
+      <td>1</td>
+      <td>MS WORD</td>
+      <td>18860/07</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2016:1108JUD001886007</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF OBERWALDER v. SLOVENIA</th>
+      <td>2</td>
+      <td>MS WORD</td>
+      <td>75567/01</td>
+      <td>si</td>
+      <td>Slovenia</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2007:0118JUD007556701</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF RAKHMONOV v. RUSSIA</th>
+      <td>3</td>
+      <td>MS WORD</td>
+      <td>50031/11</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2012:1016JUD005003111</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>4 rows × 373 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="getting-a-single-cell">
+<h2>Getting a Single Cell<a class="headerlink" href="#getting-a-single-cell" title="Link to this heading">#</a></h2>
+<p>We can get a single cell by specifying both the row and column names.
+We can get the title in the row ‘CASE OF SKLYAR v. RUSSIA’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;CASE OF SKLYAR v. RUSSIA&#39;</span><span class="p">,</span> <span class="s1">&#39;judgementdate&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18/07/2017
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tables are two-dimensional; therefore, we must use two indexes.</p>
+</div>
+</section>
+<section id="getting-multiple-columns">
+<h2>Getting Multiple Columns<a class="headerlink" href="#getting-multiple-columns" title="Link to this heading">#</a></h2>
+<p>We can get multiple columns by specifying their names in a list.
+Here, we use the subscript operator, not the locator <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="p">[[</span><span class="s1">&#39;country.name&#39;</span><span class="p">,</span> <span class="s1">&#39;judgementdate&#39;</span><span class="p">]]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country.name</th>
+      <th>judgementdate</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF SKLYAR v. RUSSIA</th>
+      <td>Russian Federation</td>
+      <td>18/07/2017</td>
+    </tr>
+    <tr>
+      <th>CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA</th>
+      <td>Russian Federation</td>
+      <td>08/11/2016</td>
+    </tr>
+    <tr>
+      <th>CASE OF OBERWALDER v. SLOVENIA</th>
+      <td>Slovenia</td>
+      <td>18/01/2007</td>
+    </tr>
+    <tr>
+      <th>CASE OF RAKHMONOV v. RUSSIA</th>
+      <td>Russian Federation</td>
+      <td>16/10/2012</td>
+    </tr>
+    <tr>
+      <th>CASE OF ARAT AND OTHERSv. TURKEY</th>
+      <td>Turkey</td>
+      <td>13/01/2009</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>CASE OF ARTUR PAWLAK v. POLAND</th>
+      <td>Poland</td>
+      <td>05/10/2017</td>
+    </tr>
+    <tr>
+      <th>CASE OF PROKHOROV v. UKRAINE</th>
+      <td>Ukraine</td>
+      <td>30/11/2006</td>
+    </tr>
+    <tr>
+      <th>CASE OF ALAJOS KISS v. HUNGARY</th>
+      <td>Hungary</td>
+      <td>20/05/2010</td>
+    </tr>
+    <tr>
+      <th>CASE OF PSHEVECHERSKIY v. RUSSIA</th>
+      <td>Russian Federation</td>
+      <td>24/05/2007</td>
+    </tr>
+    <tr>
+      <th>CASE OF TULESHOV AND OTHERS v. RUSSIA</th>
+      <td>Russian Federation</td>
+      <td>24/05/2007</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="admonition-missing-data admonition">
+<p class="admonition-title">Missing Data</p>
+<p>Here, some of the dates are missing.
+Pandas uses <code class="docutils literal notranslate"><span class="pre">NaN</span></code> to indicate missing numeric data, short for <em>Not a Number</em>.</p>
+</div>
+</section>
+<section id="matching-multiple-columns">
+<h2>Matching Multiple Columns<a class="headerlink" href="#matching-multiple-columns" title="Link to this heading">#</a></h2>
+<p>We can also select multiple columns using string matching on the column names.
+The matching uses regular expressions, which we will discuss in <a class="reference internal" href="information_extraction.html#regex"><span class="std std-ref">Regular Expressions</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>decisiondate</th>
+      <th>introductiondate</th>
+      <th>judgementdate</th>
+      <th>kpdate</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF SKLYAR v. RUSSIA</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18/07/2017</td>
+      <td>18/07/2017</td>
+    </tr>
+    <tr>
+      <th>CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>08/11/2016</td>
+      <td>08/11/2016</td>
+    </tr>
+    <tr>
+      <th>CASE OF OBERWALDER v. SLOVENIA</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18/01/2007</td>
+      <td>18/01/2007</td>
+    </tr>
+    <tr>
+      <th>CASE OF RAKHMONOV v. RUSSIA</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16/10/2012</td>
+      <td>16/10/2012</td>
+    </tr>
+    <tr>
+      <th>CASE OF ARAT AND OTHERSv. TURKEY</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>13/01/2009</td>
+      <td>13/01/2009</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>CASE OF ARTUR PAWLAK v. POLAND</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>05/10/2017</td>
+      <td>05/10/2017</td>
+    </tr>
+    <tr>
+      <th>CASE OF PROKHOROV v. UKRAINE</th>
+      <td>06/11/2006</td>
+      <td>02/03/2004</td>
+      <td>30/11/2006</td>
+      <td>30/11/2006</td>
+    </tr>
+    <tr>
+      <th>CASE OF ALAJOS KISS v. HUNGARY</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20/05/2010</td>
+      <td>20/05/2010</td>
+    </tr>
+    <tr>
+      <th>CASE OF PSHEVECHERSKIY v. RUSSIA</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>24/05/2007</td>
+      <td>24/05/2007</td>
+    </tr>
+    <tr>
+      <th>CASE OF TULESHOV AND OTHERS v. RUSSIA</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>24/05/2007</td>
+      <td>24/05/2007</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 4 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="relational-operators">
+<span id="id1"></span><h2>Relational Operators<a class="headerlink" href="#relational-operators" title="Link to this heading">#</a></h2>
+<p>Pandas can select data conditionally, using relational operators.
+The ECHR-OD case data has a column <code class="docutils literal notranslate"><span class="pre">ccl_article=2</span></code>.
+This column has the value 1 for cases where there was found a violation of Article 2 of the European Convention on Human Rights.</p>
+<p>We can use this column in an expression with a relational operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;ccl_article=2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>docname
+CASE OF SKLYAR v. RUSSIA                                                False
+CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA    False
+CASE OF OBERWALDER v. SLOVENIA                                          False
+CASE OF RAKHMONOV v. RUSSIA                                             False
+CASE OF ARAT AND OTHERSv. TURKEY                                        False
+                                                                        ...  
+CASE OF ARTUR PAWLAK v. POLAND                                          False
+CASE OF PROKHOROV v. UKRAINE                                            False
+CASE OF ALAJOS KISS v. HUNGARY                                          False
+CASE OF PSHEVECHERSKIY v. RUSSIA                                        False
+CASE OF TULESHOV AND OTHERS v. RUSSIA                                   False
+Name: ccl_article=2, Length: 100, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-boolean-columns admonition">
+<p class="admonition-title">Boolean Columns</p>
+<p>The result is a Boolean column.
+When we use them with pandas tables, relational operators return Boolean columns.
+This is just like regular relational operators, except that regular relational operators return a single value.</p>
+</div>
+</section>
+<section id="relational-operators-in-locators">
+<h2>Relational Operators in Locators<a class="headerlink" href="#relational-operators-in-locators" title="Link to this heading">#</a></h2>
+<p>We can use the result of a relational operator as a filter when selecting cases.
+This will select the cases where the Boolean value is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;ccl_article=2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF KUKAYEV v. RUSSIA</th>
+      <td>10</td>
+      <td>MS WORD</td>
+      <td>29361/02</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2007:1115JUD002936102</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF MUDAYEVY v. RUSSIA</th>
+      <td>36</td>
+      <td>MS WORD</td>
+      <td>33105/05</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2010:0408JUD003310505</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF KALLIS AND ANDROULLA PANAYI v. TURKEY</th>
+      <td>62</td>
+      <td>MS WORD</td>
+      <td>45388/99</td>
+      <td>tr</td>
+      <td>Turkey</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2009:1027JUD004538899</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 373 columns</p>
+</div></div></div>
+</div>
+<div class="admonition-conclusion-columns admonition">
+<p class="admonition-title">Conclusion Columns</p>
+<p>The conclusions of each case are listed in the columns starting with <code class="docutils literal notranslate"><span class="pre">ccl_article</span></code>.
+For Article N, the column name is <code class="docutils literal notranslate"><span class="pre">ccl_article=N</span></code>.
+These columns have 3 possible values:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="conclusion-values">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Conclusion Values</span><a class="headerlink" href="#conclusion-values" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Value</p></th>
+<th class="head text-left"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td class="text-left"><p>violation</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>-1</p></td>
+<td class="text-left"><p>no violation</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>0</p></td>
+<td class="text-left"><p>no conclusion / not relevant</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Likewise, we can select cases where there was found no violation of Article 5 § 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;ccl_article=5-3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF PAWLAK v. POLAND</th>
+      <td>47</td>
+      <td>MS WORD</td>
+      <td>39840/05</td>
+      <td>pl</td>
+      <td>Poland</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2008:0115JUD003984005</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 373 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="finding-text">
+<h2>Finding Text<a class="headerlink" href="#finding-text" title="Link to this heading">#</a></h2>
+<p>We can’t use a relational operators with text strings. Instead, we use <code class="docutils literal notranslate"><span class="pre">.str.contains()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;country.name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Germany&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF MARC BRAUER v. GERMANY</th>
+      <td>41</td>
+      <td>MS WORD</td>
+      <td>24062/13</td>
+      <td>de</td>
+      <td>Germany</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2016:0901JUD002406213</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF BARTHOLD v. GERMANY (ARTICLE 50)</th>
+      <td>53</td>
+      <td>MS WORD</td>
+      <td>8734/79</td>
+      <td>de</td>
+      <td>Germany</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:1986:0131JUD000873479</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF KLINKENBUSS v. GERMANY</th>
+      <td>90</td>
+      <td>MS WORD</td>
+      <td>53157/11</td>
+      <td>de</td>
+      <td>Germany</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2016:0225JUD005315711</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 373 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="combining-conditions">
+<h2>Combining Conditions<a class="headerlink" href="#combining-conditions" title="Link to this heading">#</a></h2>
+<p>With pandas, we can’t use <code class="docutils literal notranslate"><span class="pre">and</span></code> to combine expressions, instead we must use <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;country.name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Germany&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF MARC BRAUER v. GERMANY</th>
+      <td>41</td>
+      <td>MS WORD</td>
+      <td>24062/13</td>
+      <td>de</td>
+      <td>Germany</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2016:0901JUD002406213</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF KLINKENBUSS v. GERMANY</th>
+      <td>90</td>
+      <td>MS WORD</td>
+      <td>53157/11</td>
+      <td>de</td>
+      <td>Germany</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2016:0225JUD005315711</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 373 columns</p>
+</div></div></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remember to use parentheses around the conditions with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. Otherwise, you will get unexpected results.</p>
+</div>
+</section>
+<section id="the-isin-method">
+<h2>The isin() Method<a class="headerlink" href="#the-isin-method" title="Link to this heading">#</a></h2>
+<p>With basic Python data types, we can check if they occur in a list with the operator <code class="docutils literal notranslate"><span class="pre">in</span></code>, for example <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">in</span> <span class="pre">[0,</span> <span class="pre">1]</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+Likewise, pandas has the method <code class="docutils literal notranslate"><span class="pre">.isin()</span></code> for checking if table values occur in a list.
+We can use this for example for finding cases where the conclusion is “violation” or “no violation”, filtering out cases where an article is not relevant.</p>
+<p>As the table <a class="reference internal" href="#conclusion-values"><span class="std std-ref">Conclusion Values</span></a> shows, the value is 1 for “violation” or -1 for “no violation”.
+Again, we try with Article 5 § 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;ccl_article=5-3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF PAWLAK v. POLAND</th>
+      <td>47</td>
+      <td>MS WORD</td>
+      <td>39840/05</td>
+      <td>pl</td>
+      <td>Poland</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2008:0115JUD003984005</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF POPLAWSKI v. POLAND</th>
+      <td>56</td>
+      <td>MS WORD</td>
+      <td>28633/02</td>
+      <td>pl</td>
+      <td>Poland</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2008:0129JUD002863302</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF PSHEVECHERSKIY v. RUSSIA</th>
+      <td>98</td>
+      <td>MS WORD</td>
+      <td>28957/02</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>NaN</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2007:0524JUD002895702</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 373 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="selecting-by-year">
+<h2>Selecting by Year<a class="headerlink" href="#selecting-by-year" title="Link to this heading">#</a></h2>
+<p>We can select cases by the decision date.
+First, we must convert the <code class="docutils literal notranslate"><span class="pre">decisiondate</span></code> column to machine-readable format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;decisiondate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;decisiondate&#39;</span><span class="p">],</span> <span class="n">dayfirst</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We specify the date format with the argument <code class="docutils literal notranslate"><span class="pre">dayfirst</span> <span class="pre">=</span> <span class="pre">True</span></code>.
+There is also an argument <code class="docutils literal notranslate"><span class="pre">yearfirst</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python has the built-in library <code class="docutils literal notranslate"><span class="pre">datetime</span></code> for handling time and dates.
+But when we use pandas, we usually only need pandas’ <code class="docutils literal notranslate"><span class="pre">to_datetime()</span></code> function.</p>
+</div>
+<p>Now, we can use the year from the decision date with a relational operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cases</span><span class="p">[</span><span class="s1">&#39;decisiondate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2005</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>application</th>
+      <th>appno</th>
+      <th>country.alpha2</th>
+      <th>country.name</th>
+      <th>decisiondate</th>
+      <th>doctypebranch</th>
+      <th>ecli</th>
+      <th>importance</th>
+      <th>introductiondate</th>
+      <th>...</th>
+      <th>ccl_article=p1-3</th>
+      <th>ccl_article=p12-1</th>
+      <th>ccl_article=p4-2</th>
+      <th>ccl_article=p4-2-1</th>
+      <th>ccl_article=p4-4</th>
+      <th>ccl_article=p6-1</th>
+      <th>ccl_article=p7-1</th>
+      <th>ccl_article=p7-2</th>
+      <th>ccl_article=p7-3</th>
+      <th>ccl_article=p7-4</th>
+    </tr>
+    <tr>
+      <th>docname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CASE OF KOTLYAROV v. UKRAINE</th>
+      <td>15</td>
+      <td>MS WORD</td>
+      <td>43593/02</td>
+      <td>ua</td>
+      <td>Ukraine</td>
+      <td>2005-11-22</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2005:1213JUD004359302</td>
+      <td>4</td>
+      <td>25/10/2002</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF FRYCKMAN  v. FINLAND</th>
+      <td>20</td>
+      <td>MS WORD</td>
+      <td>36288/97</td>
+      <td>fi</td>
+      <td>Finland</td>
+      <td>2005-11-15</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2006:1010JUD003628897</td>
+      <td>4</td>
+      <td>21/05/1997</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF DEBONO v. MALTA</th>
+      <td>34</td>
+      <td>MS WORD</td>
+      <td>34539/02</td>
+      <td>mt</td>
+      <td>Malta</td>
+      <td>2005-05-03</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2006:0207JUD003453902</td>
+      <td>4</td>
+      <td>06/09/2002</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CASE OF GERASIMENKO v. RUSSIA</th>
+      <td>76</td>
+      <td>MS WORD</td>
+      <td>24657/03</td>
+      <td>ru</td>
+      <td>Russian Federation</td>
+      <td>2005-10-25</td>
+      <td>CHAMBER</td>
+      <td>ECLI:CE:ECHR:2005:1117JUD002465703</td>
+      <td>4</td>
+      <td>12/09/1999</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>4 rows × 373 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="aggregating-data">
+<h2>Aggregating Data<a class="headerlink" href="#aggregating-data" title="Link to this heading">#</a></h2>
+<p>Pandas has various functions for aggregating data.
+For example, we can count the number of occurrences of different values with <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code>.</p>
+<p>The column <code class="docutils literal notranslate"><span class="pre">doctypebranch</span></code> contains the type of deciding body for the case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">cases</span><span class="p">[</span><span class="s1">&#39;doctypebranch&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>doctypebranch
+CHAMBER         76
+COMMITTEE       22
+GRANDCHAMBER     2
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-data">
+<h2>Visualizing Data<a class="headerlink" href="#visualizing-data" title="Link to this heading">#</a></h2>
+<p>We can also plot our results.
+Here we continue working with our selection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;doctypebranch&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/aa8654a5c937fab60477fcda675a9c35d1d4c1b94725e8e7a9791260c0cbacbb.png" src="../_images/aa8654a5c937fab60477fcda675a9c35d1d4c1b94725e8e7a9791260c0cbacbb.png" />
+</div>
+</div>
+</section>
+<section id="sums">
+<h2>Sums<a class="headerlink" href="#sums" title="Link to this heading">#</a></h2>
+<p>Pandas has a function for calculating the sum of columns or rows.
+Since our data uses the number <code class="docutils literal notranslate"><span class="pre">1</span></code> to indicate <code class="docutils literal notranslate"><span class="pre">True</span></code>, we can count matching cases simply by summing the ones.</p>
+<p>We can find the number of cases where Article 3 applies by summing the column <code class="docutils literal notranslate"><span class="pre">article=3</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;article=3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also sum the values of multiple columns at once.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;article=3&#39;</span><span class="p">,</span> <span class="s1">&#39;article=5&#39;</span><span class="p">,</span> <span class="s1">&#39;article=6&#39;</span><span class="p">,</span> <span class="s1">&#39;article=10&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And plot the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/09ea0a559330bfad2d15916e20c7541db6c26f2b22134865acd1b732f8659e78.png" src="../_images/09ea0a559330bfad2d15916e20c7541db6c26f2b22134865acd1b732f8659e78.png" />
+</div>
+</div>
+</section>
+<section id="choosing-axis">
+<h2>Choosing Axis<a class="headerlink" href="#choosing-axis" title="Link to this heading">#</a></h2>
+<p>As we have seen, the method <code class="docutils literal notranslate"><span class="pre">.sum()</span></code>without any parameters will calculate the sum downwards, along the <em>index</em> of the table.
+We are adding together the rows of the table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;article=3&#39;</span><span class="p">,</span> <span class="s1">&#39;article=5&#39;</span><span class="p">,</span> <span class="s1">&#39;article=6&#39;</span><span class="p">,</span> <span class="s1">&#39;article=10&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>article=3     17
+article=5     17
+article=6     54
+article=10     9
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get the same result if we specify the parameter <code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">'index'</span></code>.
+This is because <code class="docutils literal notranslate"><span class="pre">'index'</span></code> is the default value for the parameter <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;article=3&#39;</span><span class="p">,</span> <span class="s1">&#39;article=5&#39;</span><span class="p">,</span> <span class="s1">&#39;article=6&#39;</span><span class="p">,</span> <span class="s1">&#39;article=10&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>article=3     17
+article=5     17
+article=6     54
+article=10     9
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also add together the columns of the table.
+To do this, we must change the direction to <code class="docutils literal notranslate"><span class="pre">axis</span> <span class="pre">=</span> <span class="pre">'column'</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cases</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;article=3&#39;</span><span class="p">,</span> <span class="s1">&#39;article=5&#39;</span><span class="p">,</span> <span class="s1">&#39;article=6&#39;</span><span class="p">,</span> <span class="s1">&#39;article=10&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>docname
+CASE OF SKLYAR v. RUSSIA                                                2
+CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA    0
+CASE OF OBERWALDER v. SLOVENIA                                          1
+CASE OF RAKHMONOV v. RUSSIA                                             1
+CASE OF ARAT AND OTHERSv. TURKEY                                        1
+                                                                       ..
+CASE OF ARTUR PAWLAK v. POLAND                                          1
+CASE OF PROKHOROV v. UKRAINE                                            1
+CASE OF ALAJOS KISS v. HUNGARY                                          0
+CASE OF PSHEVECHERSKIY v. RUSSIA                                        1
+CASE OF TULESHOV AND OTHERS v. RUSSIA                                   0
+Length: 100, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is a column with 100 items. These are the number of relevant articles
+(of the four we selected) for the 100 cases.</p>
+</section>
+<section id="series">
+<h2>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h2>
+<p>A pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> is a list of values, similar to a Python list.
+When we selected a single row or column above, the result was a <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<p>We can select a single column from our small example <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;time_used&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Smith v. Jones    3
+Doe v. Doe        4
+Jones v. Doe      2
+Name: time_used, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can select a row with <code class="docutils literal notranslate"><span class="pre">.loc[</span> <span class="pre">]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Doe v. Doe&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time_allotted    5
+time_used        4
+witnesses        0
+Name: Doe v. Doe, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we need to, we can also make a <code class="docutils literal notranslate"><span class="pre">Series</span></code> from scratch:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    3
+1    1
+2    5
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_files_exceptions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Files and Exceptions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sorting_filtering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sorting, Filtering Data and Search</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files">Reading CSV Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-data">Examining Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-index-column">Specifying Index Column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-row">Getting a Row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-a-column">Listing a Column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numeric-indexes">Using Numeric Indexes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-single-cell">Getting a Single Cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-multiple-columns">Getting Multiple Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-multiple-columns">Matching Multiple Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators">Relational Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-operators-in-locators">Relational Operators in Locators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-text">Finding Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-conditions">Combining Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isin-method">The isin() Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-by-year">Selecting by Year</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-data">Aggregating Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-data">Visualizing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sums">Sums</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-axis">Choosing Axis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

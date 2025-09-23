@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sorting, Filtering Data and Search &#8212; Programming for Lawyers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/sorting_filtering';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Information Extraction" href="information_extraction.html" />
+    <link rel="prev" title="Tabular Data" href="tabular_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Programming for Lawyers - Home"/>
+    <script>document.write(`<img src="../_static/uio_logo_small.svg" class="logo__image only-dark" alt="Programming for Lawyers - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">Programming basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_files_exceptions.html">Files and Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabular_data.html">Tabular Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sorting, Filtering Data and Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="information_extraction.html">Information Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supervised_learning.html">Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAG.html">Retrieval-Augmented Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">Appendix: Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JSON-APIs.html">Appendix: JSON and Web APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone-programs.html">Appendix: Standalone Programs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/UiO-CELL/programming-for-lawyers&urlpath=tree/programming-for-lawyers/docs/sorting_filtering.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/UiO-CELL/programming-for-lawyers/blob/master/docs/sorting_filtering.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/edit/master/docs/sorting_filtering.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UiO-CELL/programming-for-lawyers/issues/new?title=Issue%20on%20page%20%2Fdocs/sorting_filtering.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/sorting_filtering.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sorting, Filtering Data and Search</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-data">Sorting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data">Filtering Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-data">Modifying Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-avoiding-duplicates">Sets — Avoiding Duplicates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">Removing duplicates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-tuples">Unpacking Tuples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-by-a-key">Sorting by a key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-cases">Sorting Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-expressions">Lambda Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itemgetter">Itemgetter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-by-date">Sorting by Date</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sorting-filtering-data-and-search">
+<span id="sorting-filtering"></span><h1>Sorting, Filtering Data and Search<a class="headerlink" href="#sorting-filtering-data-and-search" title="Link to this heading">#</a></h1>
+<p>There are some operations we will frequently need when working with data sets.
+<em>Sorting</em> data is useful both for increasing the readability or accessibility and for highlighting certain aspects of the data.
+<em>Filtering</em> data is useful for removing irrelevant data and is especially important with large data sets.</p>
+<section id="sorting-data">
+<h2>Sorting Data<a class="headerlink" href="#sorting-data" title="Link to this heading">#</a></h2>
+<p>When presenting data to the user, sorting data by the right key/property can be important.
+For example, if you’re looking for a court decision by date, a list ordered by title isn’t helpful.</p>
+<p>Say we have a list of judges that we want to sort.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judges</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Síofra O’Leary, President&#39;</span><span class="p">,</span> <span class="s1">&#39;Mārtiņš Mits&#39;</span><span class="p">,</span> <span class="s1">&#39;Stéphanie Mourou-Vikström&#39;</span><span class="p">,</span> <span class="s1">&#39;Lətif Hüseynov&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Jovan Ilievski&#39;</span><span class="p">,</span> <span class="s1">&#39;Ivana Jelić&#39;</span><span class="p">,</span> <span class="s1">&#39;Anne Grøstad, ad hoc judge&#39;</span><span class="p">,</span> <span class="s1">&#39;Victor Soloveytchik, Section Registrar&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can sort lists in two ways.
+Firstly, we can make a new, sorted list, while also keeping the old one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judges_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judges_sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Anne Grøstad, ad hoc judge&#39;, &#39;Ivana Jelić&#39;, &#39;Jovan Ilievski&#39;, &#39;Lətif Hüseynov&#39;, &#39;Mārtiņš Mits&#39;, &#39;Stéphanie Mourou-Vikström&#39;, &#39;Síofra O’Leary, President&#39;, &#39;Victor Soloveytchik, Section Registrar&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Secondly, if we don’t need the original list, it’s more efficient to sort the existing list in place:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+<span class="n">judges</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Síofra O’Leary, President&#39;, &#39;Mārtiņš Mits&#39;, &#39;Stéphanie Mourou-Vikström&#39;, &#39;Lətif Hüseynov&#39;, &#39;Jovan Ilievski&#39;, &#39;Ivana Jelić&#39;, &#39;Anne Grøstad, ad hoc judge&#39;, &#39;Victor Soloveytchik, Section Registrar&#39;]
+[&#39;Anne Grøstad, ad hoc judge&#39;, &#39;Ivana Jelić&#39;, &#39;Jovan Ilievski&#39;, &#39;Lətif Hüseynov&#39;, &#39;Mārtiņš Mits&#39;, &#39;Stéphanie Mourou-Vikström&#39;, &#39;Síofra O’Leary, President&#39;, &#39;Victor Soloveytchik, Section Registrar&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-reversed-sorting admonition">
+<p class="admonition-title">Reversed Sorting</p>
+<p>By default, Python sorts the item from smallest to largest.
+For text, this means in lexicographic order from A to Z.
+We can reverse the sort order by giving <code class="docutils literal notranslate"><span class="pre">sort()</span></code> the argument <code class="docutils literal notranslate"><span class="pre">reverse</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judges</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Victor Soloveytchik, Section Registrar&#39;, &#39;Síofra O’Leary, President&#39;, &#39;Stéphanie Mourou-Vikström&#39;, &#39;Mārtiņš Mits&#39;, &#39;Lətif Hüseynov&#39;, &#39;Jovan Ilievski&#39;, &#39;Ivana Jelić&#39;, &#39;Anne Grøstad, ad hoc judge&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtering-data">
+<h2>Filtering Data<a class="headerlink" href="#filtering-data" title="Link to this heading">#</a></h2>
+<p>Let’s say we want to make a list of only the ad hoc judges. We can do that by iterating over the list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adhoc_judges</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">judges</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;ad hoc&#39;</span> <span class="ow">in</span> <span class="n">judge</span><span class="p">:</span>
+        <span class="n">adhoc_judges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">judge</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">adhoc_judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Anne Grøstad, ad hoc judge&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This works, but can be written shorter and simpler with a <em>list comprehension</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adhoc_judges</span> <span class="o">=</span> <span class="p">[</span><span class="n">judge</span> <span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">judges</span> <span class="k">if</span> <span class="s1">&#39;ad hoc&#39;</span> <span class="ow">in</span> <span class="n">judge</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">adhoc_judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Anne Grøstad, ad hoc judge&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modifying-data">
+<h2>Modifying Data<a class="headerlink" href="#modifying-data" title="Link to this heading">#</a></h2>
+<p>We can also use list comprehensions to modify each item in a list.
+For example, we can remove the titles from the list of judges.
+We split on the comma and use element 0 from the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judges</span> <span class="o">=</span> <span class="p">[</span><span class="n">judge</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">judges</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Victor Soloveytchik&#39;, &#39;Síofra O’Leary&#39;, &#39;Stéphanie Mourou-Vikström&#39;, &#39;Mārtiņš Mits&#39;, &#39;Lətif Hüseynov&#39;, &#39;Jovan Ilievski&#39;, &#39;Ivana Jelić&#39;, &#39;Anne Grøstad&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sets-avoiding-duplicates">
+<h2>Sets — Avoiding Duplicates<a class="headerlink" href="#sets-avoiding-duplicates" title="Link to this heading">#</a></h2>
+<p>Let’s say we want to collect a list of all the judges that appear in a collection of cases.
+We could do it like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_json_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">text_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">json_data</span>
+
+<span class="n">cases</span> <span class="o">=</span> <span class="n">read_json_file</span><span class="p">(</span><span class="s1">&#39;cases-5.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_judges</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;decision_body&#39;</span><span class="p">]:</span>
+        <span class="n">all_judges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">judge</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Helena Jäderblom&#39;, &#39;Branko Lubarda&#39;, &#39;Helen Keller&#39;, &#39;Dmitry Dedov&#39;, &#39;Pere Pastor Vilanova&#39;, &#39;Georgios A. Serghides&#39;, &#39;Jolien Schukking&#39;, &#39;Stephen Phillips&#39;, &#39;Luis López Guerra&#39;, &#39;Helena Jäderblom&#39;, &#39;Helen Keller&#39;, &#39;Dmitry Dedov&#39;, &#39;Branko Lubarda&#39;, &#39;Pere Pastor Vilanova&#39;, &#39;Georgios A. Serghides&#39;, &#39;Stephen Phillips&#39;, &#39;MrJ. Hedigan&#39;, &#39;MrB.M. Zupančič&#39;, &#39;MrC. Bîrsan&#39;, &#39;MrV. Zagrebelsky&#39;, &#39;MrsA. Gyulumyan&#39;, &#39;MrDavid Thór Björgvinsson&#39;, &#39;MrsI. Ziemele&#39;, &#39;Mr V. Berger&#39;, &#39;Nina Vajić&#39;, &#39;Anatoly Kovler&#39;, &#39;Khanlar Hajiyev&#39;, &#39;Mirjana Lazarova Trajkovska&#39;, &#39;Julia Laffranque&#39;, &#39;Linos-Alexandre Sicilianos&#39;, &#39;Erik Møse&#39;, &#39;Søren Nielsen&#39;, &#39;Françoise Tulkens&#39;, &#39;Ireneu Cabral Barreto&#39;, &#39;Vladimiro Zagrebelsky&#39;, &#39;Danutė Jočienė&#39;, &#39;András Sajó&#39;, &#39;Nona Tsotsoria&#39;, &#39;Işıl Karakaş&#39;, &#39;Sally Dollé&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, we get duplicates because the same judges appear in different cases.
+We need to remove these duplicates.
+The simplest way is to use <code class="docutils literal notranslate"><span class="pre">set()</span></code> instead of a list, because sets only store each item once.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_judges</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">judge</span> <span class="ow">in</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;decision_body&#39;</span><span class="p">]:</span>
+        <span class="n">all_judges</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">judge</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;MrV. Zagrebelsky&#39;, &#39;Işıl Karakaş&#39;, &#39;MrsI. Ziemele&#39;, &#39;Khanlar Hajiyev&#39;, &#39;Nona Tsotsoria&#39;, &#39;Helena Jäderblom&#39;, &#39;Stephen Phillips&#39;, &#39;Branko Lubarda&#39;, &#39;Georgios A. Serghides&#39;, &#39;MrC. Bîrsan&#39;, &#39;Julia Laffranque&#39;, &#39;Anatoly Kovler&#39;, &#39;Linos-Alexandre Sicilianos&#39;, &#39;Danutė Jočienė&#39;, &#39;András Sajó&#39;, &#39;Søren Nielsen&#39;, &#39;MrB.M. Zupančič&#39;, &#39;Helen Keller&#39;, &#39;Mirjana Lazarova Trajkovska&#39;, &#39;Vladimiro Zagrebelsky&#39;, &#39;MrDavid Thór Björgvinsson&#39;, &#39;Nina Vajić&#39;, &#39;Ireneu Cabral Barreto&#39;, &#39;Mr V. Berger&#39;, &#39;Luis López Guerra&#39;, &#39;MrsA. Gyulumyan&#39;, &#39;Jolien Schukking&#39;, &#39;MrJ. Hedigan&#39;, &#39;Dmitry Dedov&#39;, &#39;Pere Pastor Vilanova&#39;, &#39;Sally Dollé&#39;, &#39;Erik Møse&#39;, &#39;Françoise Tulkens&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A set is a collection of unique items.
+Sets are different from list in two ways: order doesn’t matter, and each item can occur only once.</p>
+</div>
+</section>
+<section id="removing-duplicates">
+<h2>Removing duplicates<a class="headerlink" href="#removing-duplicates" title="Link to this heading">#</a></h2>
+<p>If we have an existing list with duplicates, we can remove the duplicates by making a set from the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judges</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Síofra O’Leary, President&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Mārtiņš Mits&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;Mārtiņš Mits&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">judges</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Síofra O’Leary, President&#39;, &#39;Mārtiņš Mits&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-changing-order admonition">
+<p class="admonition-title">Changing Order</p>
+<p>Notice that the order of the items might change when we make a set from a list.
+Sets don’t keep track of the order of the items,
+so they will be printed in arbitrary order.</p>
+</div>
+</section>
+<section id="tuples">
+<h2>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h2>
+<p>In addition to lists and sets, Python has a third collection type for storing items called <em>tuples</em>.
+Tuples are lists that cannot be modified. Like lists but unlike sets the elements have a certain order and can be repeated.
+We can make tuples by listing the items in parentheses:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tuples can be useful for returning a collection of items from a function and for making lists of items that belong together.
+A tuple with two items is called a <em>pair</em>.</p>
+<p>We can make a list of pairs, where each pair is a judge and their (optional) title:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Síofra O’Leary&#39;</span><span class="p">,</span> <span class="s1">&#39;President&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;Anne Grøstad&#39;</span><span class="p">,</span> <span class="s1">&#39;ad hoc judge&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;Victor Soloveytchik&#39;</span><span class="p">,</span> <span class="s1">&#39;Section Registrar&#39;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">judges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Síofra O’Leary&#39;, &#39;President&#39;), (&#39;Anne Grøstad&#39;, &#39;ad hoc judge&#39;), (&#39;Victor Soloveytchik&#39;, &#39;Section Registrar&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">List vs. set vs. tuple</p>
+<p>The differences between Python’s three main one dimensional container types are summarized in the table <a class="reference internal" href="#container-table"><span class="std std-ref">Container comparison</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="container-table">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Container comparison</span><a class="headerlink" href="#container-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Modifiable</p></th>
+<th class="head"><p>Allows duplicates</p></th>
+<th class="head"><p>Ordered</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>✔️</p></td>
+<td><p>✔️</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Set</p></td>
+<td><p>✔️</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>Tuple</p></td>
+<td><p>❌</p></td>
+<td><p>✔️</p></td>
+<td><p>✔️</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="unpacking-tuples">
+<h3>Unpacking Tuples<a class="headerlink" href="#unpacking-tuples" title="Link to this heading">#</a></h3>
+<p>Python has a shortcut for assigning multiple variables at once.
+This is useful for <em>unpacking</em> the values in a tuple.
+Some libraries, for example for <a class="reference internal" href="machine_learning.html#machine-learning"><span class="std std-ref">Machine Learning</span></a>,
+return multiple values by <em>wrapping</em> (storing) them in a tuple.</p>
+<p>Let’s say we have a pair:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judge</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Síofra O’Leary&#39;</span><span class="p">,</span> <span class="s1">&#39;President&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can get the individual items like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judge_name</span> <span class="o">=</span> <span class="n">judge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">judge_title</span> <span class="o">=</span> <span class="n">judge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we can also assign both variables at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judge_name</span><span class="p">,</span> <span class="n">judge_title</span> <span class="o">=</span> <span class="n">judge</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is called <em>unpacking</em> the tuple.
+The <em>left-hand</em> side and the <em>right-hand</em> side of the assignment should be tuples with the same number of elements.</p>
+<p>Unpacking is especially useful for immediately splitting a tuple that is returned by a function into separate variables, for example:</p>
+<div class="cell tag_remove-output tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">judge_name</span><span class="p">,</span> <span class="n">judge_title</span> <span class="o">=</span> <span class="n">get_judge</span><span class="p">(</span><span class="n">case</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sorting-by-a-key">
+<h2>Sorting by a key<a class="headerlink" href="#sorting-by-a-key" title="Link to this heading">#</a></h2>
+<p>Sometimes we want to sort items in a list in a different way than the default sort order produced by <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> or <code class="docutils literal notranslate"><span class="pre">sorted()</span></code>.
+For example, we can sort strings by their length.
+We can do that by giving the sort function a <em>key</em> for sorting.
+The sorting key is the function that is applied to the items that are to be sorted.
+The return value of this function is used instead of the item itself when doing the sorting.</p>
+<p>To sort strings by their length, we use the argument <code class="docutils literal notranslate"><span class="pre">key=len</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alicia&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Abdul&#39;</span><span class="p">]</span>
+<span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Joe&#39;, &#39;Jane&#39;, &#39;Abdul&#39;, &#39;Alicia&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting-cases">
+<h2>Sorting Cases<a class="headerlink" href="#sorting-cases" title="Link to this heading">#</a></h2>
+<p>Let’s say we want to order the names of our cases by a their name or date.
+First, we make a list that contains the names (docnames) and dates as pairs.
+We can do this with a list comprehension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases_date</span> <span class="o">=</span> <span class="p">[(</span><span class="n">case</span><span class="p">[</span><span class="s1">&#39;docname&#39;</span><span class="p">],</span> <span class="n">case</span><span class="p">[</span><span class="s1">&#39;judgementdate&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we will try sorting by the case name.
+For the key, we need a function that extracts the item with an index 0 from the pair.
+We can write this function ourselves:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_title</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">cases_date</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">get_title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, if we create functions like this, our code will become littered with short functions that are only used once.
+Therefore, Python supports making <em>anonymous</em> helper functions called <em>lambda</em> expressions.
+We can use a lambda expression as sorting key.</p>
+</section>
+<section id="lambda-expressions">
+<h2>Lambda Expressions<a class="headerlink" href="#lambda-expressions" title="Link to this heading">#</a></h2>
+<p>We make anonymous functions with <code class="docutils literal notranslate"><span class="pre">lambda</span></code> expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases_date</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pair</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cases_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;CASE OF ARAT AND OTHERSv. TURKEY&#39;, &#39;13/01/2009 00:00:00&#39;), (&#39;CASE OF OBERWALDER v. SLOVENIA&#39;, &#39;18/01/2007 00:00:00&#39;), (&#39;CASE OF RAKHMONOV v. RUSSIA&#39;, &#39;16/10/2012 00:00:00&#39;), (&#39;CASE OF SKLYAR v. RUSSIA&#39;, &#39;18/07/2017 00:00:00&#39;), (&#39;CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA&#39;, &#39;08/11/2016 00:00:00&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-lambda-expressions-syntax admonition">
+<p class="admonition-title">Lambda Expressions Syntax</p>
+<p>Because lambda expressions are expressions, they can only contain a single expression, not a list of statements as a regular function.
+The general form of a lambda expression is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">expression</span>
+</pre></div>
+</div>
+<p>An equivalent, regular function definition would be something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">expression</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="itemgetter">
+<h2>Itemgetter<a class="headerlink" href="#itemgetter" title="Link to this heading">#</a></h2>
+<p>Because sorting by a list element is such a common operation, Python has a built-in function <code class="docutils literal notranslate"><span class="pre">itemgetter()</span></code> for this.
+We can use <code class="docutils literal notranslate"><span class="pre">itemgetter()</span></code> to get the element at a given index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">operator</span><span class="w"> </span><span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="n">cases_date</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cases_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;CASE OF ARAT AND OTHERSv. TURKEY&#39;, &#39;13/01/2009 00:00:00&#39;), (&#39;CASE OF OBERWALDER v. SLOVENIA&#39;, &#39;18/01/2007 00:00:00&#39;), (&#39;CASE OF RAKHMONOV v. RUSSIA&#39;, &#39;16/10/2012 00:00:00&#39;), (&#39;CASE OF SKLYAR v. RUSSIA&#39;, &#39;18/07/2017 00:00:00&#39;), (&#39;CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA&#39;, &#39;08/11/2016 00:00:00&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting-by-date">
+<h2>Sorting by Date<a class="headerlink" href="#sorting-by-date" title="Link to this heading">#</a></h2>
+<p>If we want to sort by date, we must use the element with index 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases_date</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pair</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cases_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA&#39;, &#39;08/11/2016 00:00:00&#39;), (&#39;CASE OF ARAT AND OTHERSv. TURKEY&#39;, &#39;13/01/2009 00:00:00&#39;), (&#39;CASE OF RAKHMONOV v. RUSSIA&#39;, &#39;16/10/2012 00:00:00&#39;), (&#39;CASE OF OBERWALDER v. SLOVENIA&#39;, &#39;18/01/2007 00:00:00&#39;), (&#39;CASE OF SKLYAR v. RUSSIA&#39;, &#39;18/07/2017 00:00:00&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, Python sorts the dates by lexicographic order.
+We will need to convert the textual date to an object that Python understands.</p>
+<p>We can do this with the Python library function <code class="docutils literal notranslate"><span class="pre">datetime.strptime()</span></code>.
+This function takes a parameter that specifies the data format, which looks a bit messy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">cases_date</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pair</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y %H:%M:%S&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cases_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;CASE OF OBERWALDER v. SLOVENIA&#39;, &#39;18/01/2007 00:00:00&#39;), (&#39;CASE OF ARAT AND OTHERSv. TURKEY&#39;, &#39;13/01/2009 00:00:00&#39;), (&#39;CASE OF RAKHMONOV v. RUSSIA&#39;, &#39;16/10/2012 00:00:00&#39;), (&#39;CASE OF YABLOKO RUSSIAN UNITED DEMOCRATIC PARTY AND OTHERS v. RUSSIA&#39;, &#39;08/11/2016 00:00:00&#39;), (&#39;CASE OF SKLYAR v. RUSSIA&#39;, &#39;18/07/2017 00:00:00&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tabular_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tabular Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="information_extraction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Information Extraction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-data">Sorting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data">Filtering Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-data">Modifying Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-avoiding-duplicates">Sets — Avoiding Duplicates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">Removing duplicates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-tuples">Unpacking Tuples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-by-a-key">Sorting by a key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-cases">Sorting Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-expressions">Lambda Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#itemgetter">Itemgetter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-by-date">Sorting by Date</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erik Winge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
