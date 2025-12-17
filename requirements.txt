@@ -1,6 +1,6 @@
 sphinx
 pandas
 matplotlib
-jupyter-book
+jupyter-book==1.0.4
 scikit-learn
 spacy
